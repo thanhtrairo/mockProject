@@ -9,7 +9,7 @@ import Banner from "./components/banner/Banner";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App w-full h-full relative">
+      <div className="App w-full h-full">
         <Navbar />
         <Banner />
 

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 import { BsDash } from "react-icons/bs";
 import "../../index.css";
@@ -17,7 +16,7 @@ const MenuItem = (props) => {
   return (
     <>
       <div
-        className="fixed top-0 left-0 flex-col h-full bg-black opacity-90 flex overflow-y-scroll transtion-all duration-500 items-center w-[320px] gap-8 md:hidden"
+        className="fixed top-0 left-0 flex-col h-full bg-black opacity-90 flex overflow-y-scroll z-999999 transtion-all duration-500 items-center w-[320px] gap-8 md:hidden"
         style={{ left: active ? 0 : "-320px" }}
       >
         <div className=" scale-150 text-white absolute top-2 right-2">
