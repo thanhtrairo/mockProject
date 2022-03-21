@@ -20,9 +20,14 @@ module.exports = {
         "4xl": "2rem",
       },
       menuAnimation: {
-        '0%' : {width: '0%'},
-        '100%': {width: '100%'}
-      }
+        "0%": { width: "0%" },
+        "100%": { width: "100%" },
+      },
+    },
+  },
+  variants: {
+    extend: {
+      display: ["group-hover"],
     },
   },
 };

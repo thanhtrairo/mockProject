@@ -46,12 +46,12 @@ const MenuItem = (props) => {
             </NavLink>
           </li>
           <li className="relative py-3 px-2 flex-col items-center justify-start border-b ">
-            <Link
+            <NavLink
               to="/product"
               className="flex hover:text-red-600 transition-all duration-500"
             >
               Sản Phẩm
-            </Link>
+            </NavLink>
             {isToggle && (
               <ul className="pl-4 text-[17px] mt-2 transtion-all duration-500">
                 <li className="flex justify-start py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
@@ -76,13 +76,13 @@ const MenuItem = (props) => {
             </div>
           </li>
           <li className="links-mobile">
-            <Link to="news">Tin Tức</Link>
+            <NavLink to="news">Tin Tức</NavLink>
           </li>
           <li className="links-mobile">
-            <Link to="/contact">Liên Hệ</Link>
+            <NavLink to="/contact">Liên Hệ</NavLink>
           </li>
           <li className="links-mobile">
-            <Link to="/helps">Hướng Dẫn</Link>
+            <NavLink to="/helps">Hướng Dẫn</NavLink>
           </li>
         </ul>
       </div>
