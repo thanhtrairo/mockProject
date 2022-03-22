@@ -30,5 +30,7 @@ body {
   .links-mobile {
     @apply py-3 px-2 flex items-center justify-start border-b hover:text-red-600 transition-all duration-500;
   }
-  
+  .btn-slide {
+    @apply border border-white text-white px-3 py-1 mb-2 rounded-md hover:border-red-400 transition duration-200 hover:bg-red-400;
+  }
 }

@@ -53,15 +53,15 @@ const Banner = () => {
           return (
             <SwiperSlide key={index}>
               <img src={item.imgSrc} style={{ width: "100%" }} />
-              <div className="absolute top-[70%] left-9 text-2xl">
-                <h1 className="text-black text-4xl">
+              <div className="absolute top-[50%] md:top-[60%] left-10 lg:top-[65%] lg:left-[15%] md:text-2xl">
+                <h1 className="text-black md:text-4xl lg:text-[50px] lg:py-10">
                   Group <span className="text-red-600">2</span>
                 </h1>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 lg:pb-5">
                   vui lòng click để xem{" "}
                   <span className="text-red-500">shop</span>
                 </p>
-                <div className="btn">
+                <div className="btn text-sm md:text-2xl">
                   <NavLink to="/products">
                     <button className="text-white mt-2 border px-5 py-1 border-white bg-red-500 rounded-md hover:bg-transparent hover:border-red-500">
                       Shop Now

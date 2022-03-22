@@ -54,13 +54,10 @@ const MenuItem = (props) => {
             {isToggle && (
               <ul className="pl-4 text-[17px] mt-2 transtion-all duration-500">
                 <li className="flex justify-start py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
-                  trang chủ
+                  <NavLink to="/products/nam">nam</NavLink>
                 </li>
                 <li className="flex justify-start py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
-                  trang chủ
-                </li>
-                <li className="flex justify-start py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
-                  trang chủ
+                  <NavLink to="products/nu">nữ</NavLink>
                 </li>
               </ul>
             )}

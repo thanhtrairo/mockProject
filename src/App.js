@@ -1,9 +1,10 @@
 // import "./App.css";
 import Navbar from "./components/header/Navbar";
 
-import { BrowserRouter, Route, Switch} from "react-router-dom";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Products from "./pages/products/Products";
+import ProductDetail from "./pages/products/ProductDetail";
 import Banner from "./components/banner/Banner";
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />
-          {/* <Route exact path="/products/:id" component={ProductDetail} />
-          <Route exact path="/cart" component={Cart} /> */}
+          <Route exact path="/products/:id" component={ProductDetail} />
+          {/* <Route exact path="/cart" component={Cart} /> */}
         </Switch>
       </div>
     </BrowserRouter>

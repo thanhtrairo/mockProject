@@ -43,18 +43,14 @@ const Navbar = () => {
               </h1>
             </div>
             {/* --menu destops--- */}
-            <div className="hidden md:flex items-center p-5 gap-6 z-999999">
+            <div className="hidden md:text-sm md:flex items-center p-5 gap-6 z-999999">
               <ul className="flex item-center justify-center relative gap-8">
                 <li className="links">
-                  <NavLink
-                    to="/"
-                    data-text="Trang Chủ"
-                    // className="li-animation"
-                  >
+                  <NavLink to="/" data-text="Trang Chủ">
                     Trang Chủ
                   </NavLink>
                 </li>
-                <li className="text-gray-800 font-semibold cursor-pointer  group">
+                <li className="text-gray-800 font-semibold cursor-pointer relative group">
                   <NavLink
                     to="/products"
                     className="hover:text-red-600 transition duration-500"
@@ -63,14 +59,11 @@ const Navbar = () => {
                   </NavLink>
                   <div className="absolute left-0 top-full w-full bg-white py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 divide-y divide-gray-300 divide-dashed">
                     <ul className="text-[17px] mt-2">
-                      <li className="flex justify-start py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
-                        trang chủ
+                      <li className="flex justify-start border-b border-gray-400 px-2 py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
+                        <NavLink to="/products/nam">nam</NavLink>
                       </li>
-                      <li className="flex justify-start py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
-                        trang chủ
-                      </li>
-                      <li className="flex justify-start py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
-                        trang chủ
+                      <li className="flex justify-start px-2 py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
+                        <NavLink to="/products/nu">nữ</NavLink>
                       </li>
                     </ul>
                   </div>
@@ -88,7 +81,7 @@ const Navbar = () => {
             </div>
 
             {/* --icons-- */}
-            <div className="scale-150 flex mr-3 gap-1 md:gap-3 md:mr-5 ">
+            <div className="scale-150m md:text-[20px] flex mr-3 gap-1 md:gap-3 md:mr-5 ">
               <div className="text-black hover:text-red-600 transition-all cursor-pointer duration-300">
                 <AiOutlineSearch />
               </div>
