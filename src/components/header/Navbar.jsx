@@ -8,6 +8,7 @@ import {
 import { HiOutlineUser } from "react-icons/hi";
 import MenuItem from "./MenuItem";
 import { NavLink } from "react-router-dom";
+import "./navbar.scss";
 
 import "../../index.css";
 
@@ -21,7 +22,10 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <div className="sticky w-full h-[70px] bg-white shadow-md ">
+        <div
+          className="fixed top-0 left-0 w-full h-[70px] bg-white shadow-md"
+          style={{ zIndex: 100 }}
+        >
           <div className="flex h-[100%] relative items-center p-3 justify-between">
             {/* --menu mobile-- */}
             <div className="flex md:hidden items-center">
@@ -42,7 +46,13 @@ const Navbar = () => {
             <div className="hidden md:flex items-center p-5 gap-6 z-999999">
               <ul className="flex item-center justify-center relative gap-8">
                 <li className="links">
-                  <NavLink to="/">Trang chủ</NavLink>
+                  <NavLink
+                    to="/"
+                    data-text="Trang Chủ"
+                    // className="li-animation"
+                  >
+                    Trang Chủ
+                  </NavLink>
                 </li>
                 <li className="text-gray-800 font-semibold cursor-pointer  group">
                   <NavLink

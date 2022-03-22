@@ -1,7 +1,7 @@
 // import "./App.css";
 import Navbar from "./components/header/Navbar";
 
-import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
+import { BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Banner from "./components/banner/Banner";
@@ -9,9 +9,9 @@ import Banner from "./components/banner/Banner";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App w-full h-full">
-        <Navbar />
+      <div className="App">
         <Banner />
+        <Navbar />
 
         <Switch>
           <Route exact path="/" component={Home} />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./banner.scss";
-import { ImagesData } from "./ImagesData";
+// import { ImagesData } from "./ImagesData";
 // import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,6 +12,7 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 import img1 from "./img/slide1.jpg";
 import img2 from "./img/slide2.jpg";
 import img3 from "./img/slide3.jpg";
+import { NavLink } from "react-router-dom";
 
 // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
@@ -51,10 +52,23 @@ const Banner = () => {
         {data.map((item, index) => {
           return (
             <SwiperSlide key={index}>
-              <img
-                src={item.imgSrc}
-                style={{ width: "100%", height: "100%" }}
-              />
+              <img src={item.imgSrc} style={{ width: "100%" }} />
+              <div className="absolute top-[70%] left-9 text-2xl">
+                <h1 className="text-black text-4xl">
+                  Group <span className="text-red-600">2</span>
+                </h1>
+                <p className="text-sm text-gray-600">
+                  vui lòng click để xem{" "}
+                  <span className="text-red-500">shop</span>
+                </p>
+                <div className="btn">
+                  <NavLink to="/products">
+                    <button className="text-white mt-2 border px-5 py-1 border-white bg-red-500 rounded-md hover:bg-transparent hover:border-red-500">
+                      Shop Now
+                    </button>
+                  </NavLink>
+                </div>
+              </div>
             </SwiperSlide>
           );
         })}
