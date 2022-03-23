@@ -123,9 +123,6 @@ function ProductList() {
 
     useEffect(() => {
         fetchProducts()
-        return () => {
-            dispatch(removeProduct())
-        }
     }, [])
 
     const converType = (type) => {
@@ -220,11 +217,23 @@ function ProductList() {
         }
 
         if(sort === 'nameUp') {
-            return newArr.sort()
+            return newArr.sort((a,b) => {
+                let nameA = a.name.toLowerCase()
+                let nameB = b.name.toLowerCase()
+                if (nameA < nameB) return -1
+                if (nameA > nameB) return 1
+                return 0
+            })
         }
 
         if(sort === 'nameDown') {
-            return newArr.sort().reverse()
+            return newArr.sort((a,b) => {
+                let nameA = a.name.toLowerCase()
+                let nameB = b.name.toLowerCase()
+                if (nameA > nameB) return -1
+                if (nameA < nameB) return 1
+                return 0
+            })
         }
 
         return newArr
@@ -237,7 +246,7 @@ function ProductList() {
         }
 
         if(selectSortFind?.isFind === true) {
-            setSort()
+            setSort('selectDafault')
             return productFind
         }
         
@@ -321,7 +330,7 @@ function ProductList() {
                             <div className={clsx(styles.sort)}>
                                 <span>Sắp xếp:</span>
                                 <select value={sort} onChange={e => handleSort(e)}>
-                                    <option value="">Chọn</option>
+                                    <option value="selectDafault">Chọn</option>
                                     <option value="priceUp">Giá: tăng dần</option>
                                     <option value="priceDown">Giá: giảm dần</option>
                                     <option value="nameUp">Tên: A-Z</option>

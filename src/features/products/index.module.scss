@@ -16,6 +16,18 @@ ul {
     cursor: pointer;
 }
 
+a {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+.nextPrev {
+    .slick-prev, .slick-next {
+        color: gray;
+        background-color :red;
+    }
+}
+
 .main {
     .main_wrap {
         background-color: #f8f8f8;
@@ -64,50 +76,68 @@ ul {
     }
 }
 
-.productList {
-    .item {
-        .image {
-            position: relative;
-            .icon {
-                position: absolute;
-                top: 2%;
-                right: 5%;
-                .overlay {
-                    position: relative;
-                    &:hover span{
-                        display: inline-block;
+.productInvolve {
+    text-align: center;
+    margin-bottom: 40px;
+    span {
+        font-size: 20px;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width:50%;
+            bottom: -20%;
+            left: 0;
+            transform: translateX(50%);
+            height: 2px;
+            background-color :#000;
+        }
+    }
+}
+
+.productImage {
+    .image {
+        position: relative;
+        .icon {
+            position: absolute;
+            top: 2%;
+            right: 5%;
+            .overlay {
+                position: relative;
+                &:hover span{
+                    display: inline-block;
+                }
+                button {
+                    border: none;
+                    img {
+                        width:20px;
+                        height: 20px;
                     }
-                    button {
-                        border: none;
-                        img {
-                            width:20px;
-                            height: 20px;
-                        }
-                    }
-                    span {
-                        position: absolute;
-                        top: -5px;
-                        left: 0;
-                        transform: translateX(-100%);
-                        white-space: nowrap;
-                        font-size: 14px;
-                        padding: 2px 6px;
-                        display: none;
-                    }
+                }
+                span {
+                    position: absolute;
+                    top: -5px;
+                    left: 0;
+                    transform: translateX(-100%);
+                    white-space: nowrap;
+                    font-size: 14px;
+                    padding: 2px 6px;
+                    display: none;
                 }
             }
         }
-        .productText {
-            p {
-                font-size: 14px;
-                color: #000000;
-                margin: 6px 0 0;
-            }
-            p:last-child {
-                color: #e70303;
-                font-size: 16px;
-                margin-bottom: 4px;
-            }
+    }
+    .productText {
+        p {
+            font-size: 14px;
+            color: #000000;
+            margin: 6px 0 0;
+        }
+        p:last-child {
+            color: #e70303;
+            font-size: 16px;
+            margin-bottom: 4px;
         }
     }
 }
@@ -129,6 +159,8 @@ ul {
         }
     }
 }
+
+
 
 .ProductDetail {
     .content {

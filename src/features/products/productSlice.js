@@ -5,16 +5,10 @@ const products = createSlice({
     initialState: [],
     reducers: {
         getProduct: (state, action) => {
-            return [
-                ...state,
-                ...action.payload
-            ]
-        },
-        removeProduct: () => {
-            return []
+            return action.payload
         }
     }
 })
 
-export const {getProduct, removeProduct} = products.actions
+export const {getProduct} = products.actions
 export default products.reducer 

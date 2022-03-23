@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { memo } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import styles from '../index.module.scss'
@@ -9,15 +9,13 @@ import img from '../img/loading.gif'
 function ProductComponent({onSortFind}) {
 
     const products = useSelector(state => state.products)
-    console.log(products.length)
-    const dispatch = useDispatch()
 
     return (
         <div className={clsx(styles.productList)}>
             <div className={clsx('row')}>
                 {products.length === 0 ? <img src={img} style={{width: '20%'}}/> : (onSortFind?.length > 0 ? onSortFind : products).map((product) => (
                 <div className={clsx('col-3', 'mb-4')} key={product.id}>
-                    <div className={clsx(styles.item)}>
+                    <div className={clsx(styles.item, styles.productImage)}>
                         <Link to={`/products/${product.id}`}>
                             <div className={clsx(styles.image)}>
                                 <img src={product.imageURL} />
@@ -33,7 +31,7 @@ function ProductComponent({onSortFind}) {
                         </Link>
                         <div className={clsx(styles.productText)}>
                             <p>{product.name}</p>
-                            <p>{product.prices}</p>
+                            <p>{product.prices} đ</p>
                         </div>
                         <div className={clsx(styles.cart)}>
                             <button className={clsx('btn','btn-dark')}>Thêm vào giỏ</button>
@@ -46,4 +44,4 @@ function ProductComponent({onSortFind}) {
     )
 }
 
-export default ProductComponent
+export default memo(ProductComponent)
