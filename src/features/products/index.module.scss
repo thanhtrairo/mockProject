@@ -120,6 +120,13 @@ ul {
         span {
             margin-right: 16px;
         }
+        select {
+            border: 1px solid #ccc;
+            background-color:rgb(232, 232, 241);
+            &:focus {
+                outline: none;
+            }
+        }
     }
 }
 
@@ -239,6 +246,9 @@ ul {
                 }
                 select {
                     background-color: rgb(232, 232, 241);
+                    &:focus {
+                        outline: none;
+                    }
                 }
             }
             .CommentInput {
@@ -252,6 +262,7 @@ ul {
                 textarea {
                     height: 48px;
                     width: 800px;
+                    border: 1px solid #000;
                 }
                 button {
                     height: 48px;

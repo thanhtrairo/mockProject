@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 // import Products from "./pages/Products";
 import Banner from "./components/banner/Banner";
 import Products from './features/products/index'
+import ProductDetail from "./features/products/Components/ProductDetail";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />
+          <Route exact path="/products/:productId" component={ProductDetail} />
+
           {/* <Route exact path="/products/:id" component={ProductDetail} />
           <Route exact path="/cart" component={Cart} /> */}
         </Switch>

@@ -50,7 +50,7 @@ const Navbar = () => {
                 >
                   Sản Phẩm
                 </NavLink>
-                <div class="absolute left-0 top-full w-full bg-white py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 divide-y divide-gray-300 divide-dashed">
+                <div className="absolute left-0 top-full w-full bg-white py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 divide-y divide-gray-300 divide-dashed">
                   <ul className="text-[17px] mt-2">
                     <li className="flex justify-start py-2 hover:text-red-600 transition-all duration-300 cursor-pointer">
                       trang chủ
