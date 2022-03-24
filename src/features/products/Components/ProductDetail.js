@@ -61,7 +61,7 @@ function ProductDetail() {
               <h5>{name}</h5>
               <h4 className={clsx('my-3')}>Thương hiệu: <span>{brand}</span> | Loại: <span>{category}</span></h4>
               <h2>{prices} đ</h2>
-              <p>Tiêu đề: {description}</p>
+              <h4>Tiêu đề: <span>{description}</span></h4>
               <h3 className={clsx('my-3')}><span>Số lượng:</span>
                 <button className={clsx('btn', 'btn-white')}>-</button>
                 <strong>1</strong>
@@ -69,8 +69,8 @@ function ProductDetail() {
               </h3>
             </div>
             <div className={clsx(styles.cart)}>
-              <button className={clsx('btn', 'btn-dark')}>Thêm vào giỏ</button>
-              <button className={clsx('btn', 'btn-white', 'mx-3')}>Mua ngay</button>
+              <button className={clsx('btn', 'btn-dark', 'mr-3')}>Thêm vào giỏ</button>
+              <button className={clsx('btn', 'btn-white')}>Mua ngay</button>
             </div>
           </div>
         </div>}

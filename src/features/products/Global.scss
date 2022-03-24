@@ -1,0 +1,38 @@
+@use './scss/mixin' as *;
+
+img {
+    width: 100%;
+    display: block;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0px !important;
+}
+
+.title {
+    cursor: pointer;
+}
+
+a {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+.slick-prev, .slick-next {
+    &::before {
+        color: gray;
+        font-size: 24px;
+    }
+}
+
+.containerCustom {
+    width: 80%;
+    margin: 0 auto;
+    @include table {
+        width: 90%;
+    }
+}

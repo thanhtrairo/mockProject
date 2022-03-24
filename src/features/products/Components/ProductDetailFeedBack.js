@@ -91,10 +91,16 @@ function ProductDetailFeedBack() {
                             </select>
                         </div>
                     </div>
-                    <div className={clsx(styles.CommentInput)}>
-                        <img src='//product.hstatic.net/200000397757/product/color_do-01_35d9df75f1734fb683e1aee3ade80f15_large.jpg' />
-                        <textarea rows="4" />
-                        <button>Bình luận</button>
+                    <div className={clsx(styles.CommentInput,'row')}>
+                        <div className={clsx('col-2','col-sm-1')}>
+                            <img src='//product.hstatic.net/200000397757/product/color_do-01_35d9df75f1734fb683e1aee3ade80f15_large.jpg' />
+                        </div>
+                        <div className={clsx('col-8','col-sm-9')}>
+                            <textarea rows="4" />
+                        </div>
+                        <div className={clsx('col-2')} >
+                            <button>Bình luận</button>
+                        </div>
                     </div>
                 </div>
             </div>
