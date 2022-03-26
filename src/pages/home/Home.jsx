@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./home.scss";
+import "./scss/homeBanner.scss";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
@@ -8,6 +8,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick/lib/slider";
 import HomeBanner from "./HomeBanner";
+import HomeProducts from "./HomeProducts";
+import HomeBannerFooter from "./HomeBannerFooter";
+import CategoryProducts from "./CategoryProducts";
+import HomeNew from "./HomeNew";
 const Home = () => {
   const [loading, setloading] = useState(false);
   const [newData, setNewData] = useState([]);
@@ -60,14 +64,14 @@ const Home = () => {
       setloading(false);
       setNewData(data);
 
-      console.log(">> check data:", data);
+      // console.log(">> check data:", data);
     };
     getData();
   }, []);
 
   return (
     <>
-      <div className="content flex w-full h-auto relative bg-white justify-center items-center ">
+      <div className="flex w-full h-auto relative bg-white justify-center items-center ">
         <div className="flex-col h-auto  w-[90%] my-8 ">
           <div className="mb-[20px] md:mb-[30px] flex items-center justify-center  md:text-2xl">
             <h1 className="title shadow-md text-xl text-gray-900 font-bold py-2 px-5 md:text-4xl">
@@ -119,6 +123,10 @@ const Home = () => {
         </div>
       </div>
       <HomeBanner />
+      <HomeProducts />
+      <HomeBannerFooter />
+      <CategoryProducts />
+      <HomeNew />
     </>
   );
 };

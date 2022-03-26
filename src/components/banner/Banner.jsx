@@ -9,9 +9,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 
-import img1 from "./img/slide1.jpg";
-import img2 from "./img/slide2.jpg";
-import img3 from "./img/slide3.jpg";
+import img1 from "../img/slide1.jpg";
+import img2 from "../img/slide2.jpg";
+import img3 from "../img/slide3.jpg";
 import { NavLink } from "react-router-dom";
 
 // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
