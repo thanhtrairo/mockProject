@@ -29,10 +29,25 @@ a {
     }
 }
 
+.main_wrap {
+    background-color: #f8f8f8;
+    .header {
+        a, span {
+            color: #000 !important;
+            font-size: 13px;
+            text-decoration: none;
+        }
+    }
+}
+
 .containerCustom {
     width: 80%;
     margin: 0 auto;
     @include table {
         width: 90%;
     }
+}
+
+.porsitonRelative {
+    position: relative;
 }

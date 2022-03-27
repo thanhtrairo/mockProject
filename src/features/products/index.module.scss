@@ -1,17 +1,5 @@
 @use './scss/mixin' as *;
 
-
-.main_wrap {
-    background-color: #f8f8f8;
-    .header {
-        a, span {
-            color: #000 !important;
-            font-size: 13px;
-            text-decoration: none;
-        }
-    }
-}
-
 .mainProduct {
     position: relative;
     .iconSidebar {

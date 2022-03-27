@@ -1,19 +1,34 @@
 import clsx from 'clsx'
-import React, { memo } from 'react'
-import { useSelector } from 'react-redux'
+import React, { memo, useState } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import styles from '../index.module.scss'
 import img from '../img/loading.gif'
+import {addCart} from '../../carts/cartSlice'
+import Modal from '../../Components/modal/Modal'
 
 function ProductComponent({ onSortFind }) {
 
     const products = useSelector(state => state.products)
+    const dispatch = useDispatch()
+
+    const [compeleteCart, setCompeleteCart] = useState(false)
+
+    const handleAddCart = (product) => {
+        setCompeleteCart(true)
+        setTimeout(() => {
+            setCompeleteCart(false)
+        },2000)
+        dispatch(addCart({product}))
+    }
 
     return (
-        <div className={clsx(styles.productList)}>
+        <div className={clsx(styles.productList, '')}>
+            {compeleteCart && <Modal />}
             <div className={clsx('row')}>
-                {products.length === 0 ? <img src={img} style={{ width: '20%' }} /> : (onSortFind?.length > 0 ? onSortFind : products).map((product) => (
+                {products.length === 0 ? <img src={img} style={{ width: '20%' }} /> 
+                : (onSortFind?.length > 0 ? onSortFind : products).map((product) => (
                     <div className={clsx('col-xl-3', 'col-md-4','col-6', 'mb-4')} key={product.id}>
                         <div className={clsx(styles.item, styles.productImage)}>
                             <Link to={`/products/${product.id}`}>
@@ -34,7 +49,7 @@ function ProductComponent({ onSortFind }) {
                                 <p>{product.prices} đ</p>
                             </div>
                             <div className={clsx(styles.cart)}>
-                                <button className={clsx('btn', 'btn-dark')}>Thêm vào giỏ</button>
+                                <button className={clsx('btn', 'btn-dark')} onClick={() => handleAddCart(product)}>Thêm vào giỏ</button>
                             </div>
                         </div>
                     </div>

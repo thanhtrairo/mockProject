@@ -1,9 +1,11 @@
 
 import clsx from 'clsx'
-import React, { memo, useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { memo, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick/lib/slider'
+import { addCart } from '../../carts/cartSlice'
+import Modal from '../../Components/modal/Modal'
 
 import styles from '../index.module.scss'
 
@@ -43,6 +45,7 @@ function ProductSlider({ product }) {
         ]
     }
     const products = useSelector(state => state.products)
+    const dispatch = useDispatch()
 
     const [productType, setProductType] = useState([])
 
@@ -52,11 +55,22 @@ function ProductSlider({ product }) {
     }, [Object.keys(product).length, products.length])
 
     useEffect(() => {
-        document.body.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
-    },[product.id])
+        document.body.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+    }, [product.id])
+
+    const [compeleteCart, setCompeleteCart] = useState(false)
+
+    const handleAddCart = (product) => {
+        setCompeleteCart(true)
+        setTimeout(() => {
+            setCompeleteCart(false)
+        }, 2000)
+        dispatch(addCart({ product }))
+    }
 
     return (
         <div>
+            {compeleteCart && <Modal />}
             <div className={clsx(styles.productInvolve)}>
                 <span>SẢN PHẨM LIÊN QUAN</span>
             </div>
@@ -81,7 +95,7 @@ function ProductSlider({ product }) {
                             <p>{product.prices} đ</p>
                         </div>
                         <div className={clsx(styles.cart)}>
-                            <button className={clsx('btn', 'btn-dark')}>Thêm vào giỏ</button>
+                            <button className={clsx('btn', 'btn-dark')} onClick={() => handleAddCart(product)}>Thêm vào giỏ</button>
                         </div>
                     </div>
                 ))}
@@ -90,4 +104,4 @@ function ProductSlider({ product }) {
     )
 }
 
-export default ProductSlider
+export default memo(ProductSlider)

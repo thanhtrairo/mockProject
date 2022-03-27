@@ -1,12 +1,14 @@
 
 import axios from 'axios'
 import clsx from 'clsx'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import Slider from "react-slick";
 
 import Api from '../../../api/Api'
+import { addCart } from '../../carts/cartSlice'
+import Modal from '../../Components/modal/Modal'
 import img from '../img/loading.gif'
 import styles from '../index.module.scss'
 import { removeSelectProduct, selectProduct } from '../selectProductSlice'
@@ -34,15 +36,32 @@ function ProductDetail() {
       dispatch(removeSelectProduct())
     }
   }, [productId])
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
+
+  const [quatity, setQuatity] = useState(1)
+
+  const handleDownQuatity = () => {
+    if (quatity <= 1) return
+
+    setQuatity(quatity - 1)
+  }
+
+  const handleUpQuatity = () => {
+    setQuatity(quatity + 1)
+  }
+
+  const [compeleteCart, setCompeleteCart] = useState(false)
+
+  const handleAddCart = (product) => {
+    setCompeleteCart(true)
+    setTimeout(() => {
+      setCompeleteCart(false)
+    }, 2000)
+    dispatch(addCart({ product }))
+  }
+
   return (
     <div>
+      {compeleteCart && <Modal />}
       <div className={clsx(styles.ProductDetail, 'container')}>
         {Object.keys(product).length === 0 ? <img src={img} style={{ width: '10%' }} /> : <div className={clsx(styles.content, 'row')}>
           <div className={clsx(styles.image, 'col-5')}>
@@ -63,19 +82,21 @@ function ProductDetail() {
               <h2>{prices} đ</h2>
               <h4>Tiêu đề: <span>{description}</span></h4>
               <h3 className={clsx('my-3')}><span>Số lượng:</span>
-                <button className={clsx('btn', 'btn-white')}>-</button>
-                <strong>1</strong>
-                <button className={clsx('btn', 'btn-white')}>+</button>
+                <button className={clsx('btn', 'btn-white')} onClick={handleDownQuatity}>-</button>
+                <strong>{quatity}</strong>
+                <button className={clsx('btn', 'btn-white')} onClick={handleUpQuatity}>+</button>
               </h3>
             </div>
             <div className={clsx(styles.cart)}>
-              <button className={clsx('btn', 'btn-dark', 'mr-3')}>Thêm vào giỏ</button>
-              <button className={clsx('btn', 'btn-white')}>Mua ngay</button>
+              <button className={clsx('btn', 'btn-dark', 'mr-3')} onClick={() => handleAddCart(product)}>Thêm vào giỏ</button>
+              <Link to='/carts'>
+                <button className={clsx('btn', 'btn-white')} onClick={() => dispatch(addCart({ product }))}>Mua ngay</button>
+              </Link>
             </div>
           </div>
         </div>}
         <ProductDetailFeedBack />
-        <ProductSlider product={product}/>
+        <ProductSlider product={product} />
       </div>
     </div>
   )

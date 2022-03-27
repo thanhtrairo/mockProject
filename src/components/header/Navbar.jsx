@@ -10,6 +10,8 @@ import MenuItem from "./MenuItem";
 import { NavLink } from "react-router-dom";
 
 import "../../index.css";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
@@ -17,6 +19,8 @@ const Navbar = () => {
   const showMenu = () => {
     setActive(!active);
   };
+
+  const carts = useSelector(state => state.carts)
 
   return (
     <>
@@ -84,12 +88,14 @@ const Navbar = () => {
             <div className="text-black hover:text-red-600 transition-all cursor-pointer duration-300">
               <HiOutlineUser />
             </div>
-            <div className="text-black hover:text-red-600 transition-all cursor-pointer duration-300 relative">
-              <span className="absolute -top-1 -right-1 text-[10px] w-3 h-3 rounded-full bg-red-600 flex items-center text-white justify-center">
-                0
-              </span>
-              <AiOutlineShoppingCart />
-            </div>
+            <Link to='/carts'>
+              <div className="text-black hover:text-red-600 transition-all cursor-pointer duration-300 relative">
+                <span className="absolute -top-1 -right-1 text-[10px] w-3 h-3 rounded-full bg-red-600 flex items-center text-white justify-center">
+                  {carts.length ? carts.length : 0}
+                </span>
+                <AiOutlineShoppingCart />
+              </div>            
+            </Link>
           </div>
         </div>
         <MenuItem showMenu={showMenu} active={active} />

@@ -2,7 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProduct, removeProduct } from '../productSlice'
+import { getProduct } from '../productSlice'
 import clsx from 'clsx'
 
 

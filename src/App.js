@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Banner from "./components/banner/Banner";
 import Products from './features/products/index'
 import ProductDetail from "./features/products/Components/ProductDetail";
+import Cart from "./features/carts/index";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/products/:productId" component={ProductDetail} />
+          <Route exact path="/carts" component={Cart} />
 
           {/* <Route exact path="/products/:id" component={ProductDetail} />
           <Route exact path="/cart" component={Cart} /> */}
