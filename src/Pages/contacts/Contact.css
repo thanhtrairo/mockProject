@@ -1,0 +1,341 @@
+
+.breadcrumb-shop {
+    background: #f8f8f8;
+    margin: 0;
+}
+section {
+    display: block;
+}
+.pd-top-30 {
+    padding-top: 30px;
+}
+.container {
+    width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+.text-center {
+    text-align: center!important;
+}
+h1{
+    line-height: normal;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    display: block;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#map {
+    width: 100%;
+    margin-bottom: 30px;
+}
+#map iframe{
+    width: 100%;
+    height: 300px;
+}
+iframe {
+    width:600px;
+     height:450px;
+      border:0;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sidebar-blog {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+.sidebar-blog .sidebarblog-title {
+    margin-bottom: 15px;
+}
+.sidebar-blog .sidebarblog-title .title-sidebar {
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+#categories li {
+    position: relative;
+}
+li {
+    display: list-item;  
+}
+#categories > ul > li > a {
+    font-weight: 600;
+}
+.cate {
+    padding-left: 0px;
+}
+#categories li a {
+    font-size: 15px;
+    padding: 5px 0;
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+#categories li > ul {
+    display: none;
+    padding-left: 15px;
+}
+#categories li > ul li a {
+    font-size: 14px;
+}
+a{
+    color: var(--colorshop);
+    text-decoration: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+ul ul {
+    list-style-type: circle;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+.cl-open-sb {
+    font-size: 0;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 0;
+    width: 31px;
+    height: 31px;
+    top: 0;
+    z-index: 999;
+}
+.cl-open-sb.minus-menu:after {
+    content: "–";
+    font-size: 20px;
+    font-weight: 500;
+}
+.cl-open-sb.plus-menu:after {
+    content: "+";
+    font-size: 20px;
+    font-weight: 500;
+}
+button{
+    color: #000;
+    margin: 0;
+    line-height: inherit;
+    border-radius: 0px;
+    cursor: pointer;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    align-items: flex-start;
+}
+.dt-width-100 {
+    width: 100%;
+    height: auto;
+}
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+.col-md-3 {
+    width: 25%;
+}
+.col-md-3,.col-sm-12,.col-xs-12{
+    padding: 0 15px;
+    position: relative;
+}
+.col-md-9 {
+    width: 75%;
+}
+.col-md-9,.col-sm-12,.col-xs-12{
+    padding: 0 15px;
+    position: relative;
+}
+aside{
+    display: block;
+}
+.page-content {
+    min-height: 500px;
+}
+.mg-bottom-15 {
+    margin-bottom: 15px;
+}
+.col-md-6 {
+    width: 50%;
+}
+.contact-form-warp h6 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 0 0 13px 0;
+    font-weight: 500;
+    line-height: normal;
+}
+button,input, optgroup, select, textarea {
+    color: #000;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    border-radius: 0px;
+}
+h6{
+    display: block;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-transform: uppercase;
+}
+.contact-form-warp form {
+    margin-top: 10px;
+}
+form{
+    display: block;
+}
+input{
+    border: 1px solid #e5e5e5;
+    max-width: 100%;
+    padding: 8px 10px;
+    outline: none;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+}
+input[type="hidden" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    display: none !important;
+}
+.contact-form-warp form ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.contact-form-warp form ul li {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.contact-form-warp form ul li label {
+    margin-bottom: 5px;
+    display: block;
+}
+label {
+    cursor: default;
+}
+.contact-form-warp form ul li input, .contact-form-warp form ul li textarea {
+    width: 100%;
+}
+.contact-form-warp form ul li textarea {
+    resize: none;
+    font-weight: 400;
+    min-height: 100px;
+}
+textarea {
+    border: 1px solid #e5e5e5;
+    max-width: 100%;
+    padding: 8px 10px;
+    border-radius: 3px;
+    outline: none;
+}
+.form-fill {
+    padding-left: 0;
+}
+.contact-info h6 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+}
+.content-entry p {
+    line-height: 21px;
+    margin-bottom: 15px;
+}
+p{
+    margin: 0 0 10px 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.contact-info .contact-info-list {
+    margin: 0;
+    list-style: none;
+}
+.content-entry ol, .content-entry ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+.contact-info .contact-info-list li:first-child {
+    margin-top: 0;
+}
+.contact-info .contact-info-list li {
+    list-style: none;
+    display: flex;
+}
+.content-entry li {
+    margin-bottom: 7px;
+    line-height: 22px;
+}
+.btn {
+    padding: 10px 30px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    white-space: nowrap;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+    border-radius: 3px;
+}
+.btn span{
+    color: #fff;
+}
+.contact-form-warp form .contact-submit button {
+    border: 1px solid #fff;
+    outline: none;
+    background: red;
+}
+@media only screen and (max-width:46.1875em){
+
+}
+@media only screen and (min-width:46.25em) and (max-width:63.9375em){
+
+}
