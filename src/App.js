@@ -6,7 +6,7 @@ import Home from "./pages/home/Home";
 import Products from "./pages/products/Products";
 import ProductDetail from "./pages/products/ProductDetail";
 import Banner from "./components/banner/Banner";
-import Admin from "./pages/admin/Admin";
+import Admin from "./admin/components/Admin";
 import { useState } from "react";
 
 function App() {
@@ -31,9 +31,9 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
-          <Route exact path="/admin" component={Admin} />
+          <Route path="/admin" component={Admin} />
 
-          <Route exact path="/" component={Main} />
+          <Route path="/" component={Main} />
 
           {/* {/* <Route exact path="/cart" component={Cart} /> */}
         </Switch>

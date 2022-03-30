@@ -12,6 +12,9 @@ import HomeProducts from "./HomeProducts";
 import HomeBannerFooter from "./HomeBannerFooter";
 import CategoryProducts from "./CategoryProducts";
 import HomeNew from "./HomeNew";
+
+document.title = "home";
+
 const Home = () => {
   const [loading, setloading] = useState(false);
   const [newData, setNewData] = useState([]);
@@ -57,6 +60,7 @@ const Home = () => {
 
   useEffect(() => {
     const getData = async () => {
+      setloading(true);
       const res = await axios.get(
         "https://622c5742087e0e041e08c677.mockapi.io/products/products"
       );
@@ -115,8 +119,7 @@ const Home = () => {
             </Slider>
             {loading === true && (
               <div className="flex text-xl items-center justify-center">
-                {" "}
-                loading...{" "}
+                loading...
               </div>
             )}
           </div>

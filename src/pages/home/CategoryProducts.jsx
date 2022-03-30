@@ -89,7 +89,11 @@ const CategoryProducts = () => {
         <ul className="flex flex-wrap list-none justify-center mb-[15px]">
           <li className="mr-[15px] mb-[10px] flex">
             <button
-              className={clsx("btn-category", cate === "" && "bg-transparent")}
+              className={clsx(
+                "btn-category",
+                cate === "" &&
+                  "bg-transparent text-black border border-solid border-red-600"
+              )}
               onClick={() => handleFilterProduct("")}
             >
               Tất Cả Sản Phẩm
