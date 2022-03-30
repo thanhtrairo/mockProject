@@ -5,12 +5,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-import Home from "./pages/Home";
 // import Products from "./pages/Products";
-import Banner from "./components/banner/Banner";
 import Products from './features/products/index'
 import ProductDetail from "./features/products/Components/ProductDetail";
 import Cart from "./features/carts/index";
+import Home from "./pages/Home";
+import Banner from "./components/banner/Banner";
+import News from "../src/components/new/News";
+import DetailNew from "./components/new/DetailNew";
 
 function App() {
   return (
@@ -24,7 +26,15 @@ function App() {
           <Route exact path="/products" component={Products} />
           <Route exact path="/products/:productId" component={ProductDetail} />
           <Route exact path="/carts" component={Cart} />
-
+          <Route path="/news" exact>
+              <News/>
+          </Route>
+          <Route path="/news/:id">
+            <DetailNew/>
+          </Route>
+        {/* <Banner /> */}
+        
+        
           {/* <Route exact path="/products/:id" component={ProductDetail} />
           <Route exact path="/cart" component={Cart} /> */}
         </Switch>

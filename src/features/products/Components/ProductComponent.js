@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -14,14 +14,20 @@ function ProductComponent({ onSortFind }) {
     const dispatch = useDispatch()
 
     const [compeleteCart, setCompeleteCart] = useState(false)
-
+    const carts = useSelector(state => state.carts)
+    localStorage.setItem("cartItems", JSON.stringify(carts.cartItems))
     const handleAddCart = (product) => {
         setCompeleteCart(true)
-        setTimeout(() => {
-            setCompeleteCart(false)
-        },2000)
         dispatch(addCart({product}))
     }
+
+    useEffect(() => {
+        const timeId = setTimeout(() => {
+            setCompeleteCart(false)
+        },2000)
+
+        return () => clearTimeout(timeId)
+    }, [compeleteCart])
 
     return (
         <div className={clsx(styles.productList, '')}>
