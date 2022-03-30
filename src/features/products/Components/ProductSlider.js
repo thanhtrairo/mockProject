@@ -60,7 +60,7 @@ function ProductSlider({ product }) {
 
     const [compeleteCart, setCompeleteCart] = useState(false)
     const carts = useSelector(state => state.carts)
-    localStorage.setItem("cartItems", JSON.stringify(carts.cartItems))
+    localStorage.setItem("cartItems", JSON.stringify(carts))
     const handleAddCart = (product) => {
         setCompeleteCart(true)
         dispatch(addCart({ product }))
@@ -69,7 +69,7 @@ function ProductSlider({ product }) {
     useEffect(() => {
         const timeId = setTimeout(() => {
             setCompeleteCart(false)
-        },2000)
+        }, 2000)
 
         return () => clearTimeout(timeId)
     }, [compeleteCart])

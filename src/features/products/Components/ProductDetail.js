@@ -35,7 +35,7 @@ function ProductDetail() {
     return () => {
       dispatch(removeSelectProduct())
     }
-  }, [productId])
+  }, [dispatch, productId ])
 
   const [quatity, setQuatity] = useState(1)
 
@@ -51,7 +51,7 @@ function ProductDetail() {
 
   const [compeleteCart, setCompeleteCart] = useState(false)
   const carts = useSelector(state => state.carts)
-  localStorage.setItem("cartItems", JSON.stringify(carts.cartItems))
+  localStorage.setItem("cartItems", JSON.stringify(carts))
   const handleAddCart = (product) => {
     setCompeleteCart(true)
     dispatch(addCart({ product, quatity }))
