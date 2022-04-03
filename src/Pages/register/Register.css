@@ -124,12 +124,9 @@ ul {
 li {
     display: list-item;
 }
-.btn:not(:disabled):not(.disabled) {
-    cursor: pointer;
-}
+
 .contact-form-warp .btn {
     border: 1px solid #000000;
-    background: #000000;
     outline: none;
 }
 
@@ -147,9 +144,6 @@ li {
     position: relative;
     z-index: 1;
     border-radius: 3px;
-}
-.btn span{
-    color: #fff;
 }
 .contact-form-warp form .req_pass {
     margin-top: 15px;
