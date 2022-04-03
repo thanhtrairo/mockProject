@@ -15,7 +15,7 @@
         "icon": "bx bx-package"
     },
     {
-        "display_name": "User",
+        "display_name": "Users",
         "route": "/admin/user",
         "icon": "bx bx-user" 
     },

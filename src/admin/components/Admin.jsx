@@ -10,10 +10,13 @@ import Routes from "./Routes";
 import "../assets/css/index.css";
 import TopNav from "./topnav/TopNav";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, useRouteMatch } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import ThemeAction from "../redux/action/ThemeAction";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 document.title = "admin";
 
@@ -46,6 +49,19 @@ const Admin = () => {
           </div>
         )}
       />
+      <div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </div>
     </BrowserRouter>
   );
 };

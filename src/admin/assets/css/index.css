@@ -31,7 +31,7 @@
   --second-color-green: #4caf50;
 
   --main-color-orange: #d68102;
-  --second-color-orange: #f5c938 ;
+  --second-color-orange: #f5c938;
 
   --sidebar-width: 300px;
   --border-radius: 15px;
@@ -191,4 +191,28 @@ input:focus {
   .col-8 {
     width: 100%;
   }
+}
+
+.add-new {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  /* border: 1px solid var(--main-color); */
+}
+
+.add-new > button {
+  border: 1px solid var(--main-color);
+  border-radius: var(--border-radius);
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: var(--main-color);
+  transition: all 0.5s 300ms;
+  color: var(--text-white);
+}
+
+.add-new > button:hover {
+  opacity: 0.8;
 }

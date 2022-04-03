@@ -62,4 +62,8 @@
   color: var(--text-white);
 }
 
+.sidebar.block {
+  display: block;
+}
+
 /* mobile */
