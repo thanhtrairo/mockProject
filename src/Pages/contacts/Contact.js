@@ -79,15 +79,15 @@ function Contact() {
                                     <ul class="form-fill">
                                         <li>
                                             <label for="contactFormName">Họ và tên</label>
-                                            <input required="" type="text" placeholder="Nhập tên của bạn" class="" name="contact[name]" id="contactFormName" value=""/>
+                                            <input required="" type="text" placeholder="Nhập tên của bạn" class="" name="contact[name]" id="contactFormName" />
                                         </li>
                                         <li>
                                             <label for="contactFormEmail">Số điện thoại</label>
-                                            <input required="" type="email" placeholder="Nhập số điện thoại của bạn" class="" name="contact[phone]" id="contactFormPhone" value=""/>
+                                            <input required="" type="email" placeholder="Nhập số điện thoại của bạn" class="" name="contact[phone]" id="contactFormPhone" />
                                         </li>
                                         <li>
                                             <label for="contactFormEmail">Email</label>
-                                            <input required="" type="email" placeholder="Nhập email của bạn" class="" name="contact[email]" id="contactFormEmail" value=""/>
+                                            <input required="" type="email" placeholder="Nhập email của bạn" class="" name="contact[email]" id="contactFormEmail" />
                                         </li>
                                         <li>
                                             <label for="Name">Message</label>
