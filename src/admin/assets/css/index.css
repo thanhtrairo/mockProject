@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
+/* @import 'bootstrap/dist/css/bootstrap.min.css'; */
 :root {
   --main-bg: #ffffff;
   --second-bg: #fafafb;
@@ -31,7 +31,7 @@
   --second-color-green: #4caf50;
 
   --main-color-orange: #d68102;
-  --second-color-orange: #f5c938 ;
+  --second-color-orange: #f5c938;
 
   --sidebar-width: 300px;
   --border-radius: 15px;
@@ -171,24 +171,58 @@ input:focus {
   .sidebar {
     display: none;
     width: 0;
+    z-index: 1000;
   }
   .layout-content {
     padding: 0;
     width: 100%;
   }
 
+  .sidebar-footer{
+    display: block;
+  }
+  
+  
+
   .dropdown-menu {
     display: block;
   }
 
-  .col-6 {
+  .box-6 {
     width: 100%;
   }
-  .col-4 {
+  .box-4 {
     width: 100%;
   }
 
-  .col-8 {
+  .box-8 {
     width: 100%;
   }
 }
+
+.add-new {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  /* border: 1px solid var(--main-boxor); */
+}
+
+.add-new > button {
+  border: 1px solid var(--main-color);
+  border-radius: var(--border-radius);
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: var(--main-color);
+  transition: all 0.5s 300ms;
+  color: var(--text-white);
+}
+
+.add-new > button:hover {
+  opacity: 0.8;
+}
+
+
+

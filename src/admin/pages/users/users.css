@@ -1,0 +1,75 @@
+.btn-action {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-edit,
+.btn-delete {
+  font-size: 1.2rem;
+  color: var(--txt-color);
+  cursor: pointer;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  color: var(--main-color);
+}
+
+.list-user {
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+}
+
+.filter-item {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  align-items: center;
+  margin: 10px 20px;
+} 
+
+.filter-search {
+  margin: 10px;
+  margin-right: 10px;
+}
+
+.filter-search > input {
+  padding: 5px 10px;
+  border: 1px solid var(--main-color);
+  border-radius: var(--border-radius); 
+}
+
+.filter-soft {
+  padding-left: 10px;
+}
+
+.filter-soft > label {
+  margin-right: 8px;
+}
+
+.filter-soft > select {
+  padding: 8px 20px;
+  border: 1px solid var(--main-color);
+
+}
+
+.row-add {
+  margin: 10px;
+  transition: all 0.8s ;
+  opacity: 1;
+}
+
+.row-add:hover {
+  opacity: 0.8;
+}
+
+.btn-add {
+  border: 1px solid;
+  background-color: var(--main-color);
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: var(--text-white);
+}

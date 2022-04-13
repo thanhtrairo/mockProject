@@ -3,6 +3,12 @@
   color: var(--text-white);
   border-radius: 10px;
   box-shadow: var(--box-shadow);
+  opacity: 1;
+  transition: all 0.8ms;
+}
+
+.badge:hover {
+  opacity: 0.8;
 }
 
 .badge-danger {
@@ -14,6 +20,8 @@
 .badge-primary {
   background-color: blue;
 }
-.badge-warning {
+.badge-warning{
   background-color: orange;
 }
+
+

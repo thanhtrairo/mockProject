@@ -14,6 +14,12 @@ import user_image from "../../assets/images/account.jpg";
 
 import user_menu from "../../assets/JsonData/user_menus.json";
 
+// import Sidebar from "../sidebar/Sidebar";
+
+import AppAction from "../../redux/action/AppAction";
+
+import { useDispatch, useSelector } from "react-redux";
+
 const curr_user = {
   display_name: "hợp trần",
   image: user_image,
@@ -38,20 +44,25 @@ const renderUserMenu = (item, index) => (
 );
 
 const Topnav = () => {
-  const [isMenu, setIsMenu] = useState(false);
+  const dispath = useDispatch();
+  const appReducer = useSelector((state) => state.AppReducers);
+
   const handleClickMenu = () => {
-    setIsMenu(true);
+    dispath(AppAction.setMenu());
   };
 
   return (
     <div className="topnav">
       <div className="dropdown-sidebar">
-        <i class="bx bx-menu"></i>
+        {/* <Sidebar isMenu={isMenu} /> */}
+        {!appReducer.isOpenMenu && (
+          <i className="bx bx-menu" onClick={() => handleClickMenu()}></i>
+        )}
       </div>
-      <div className="topnav-search">
+      {/* <div className="topnav-search">
         <input type="text" placeholder="Search..." />
         <i className="bx bx-search"></i>
-      </div>
+      </div> */}
       <div className="topnav-right">
         <div className="topnav-right-item">
           {/* dropdown here */}

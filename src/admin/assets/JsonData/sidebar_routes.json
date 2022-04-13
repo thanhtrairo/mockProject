@@ -15,9 +15,14 @@
         "icon": "bx bx-package"
     },
     {
-        "display_name": "User",
+        "display_name": "Users",
         "route": "/admin/user",
         "icon": "bx bx-user" 
+    },
+    {
+        "display_name": "Order",
+        "route": "/admin/order",
+        "icon": "bx bx-cart" 
     },
     {
         "display_name": "Analytics",

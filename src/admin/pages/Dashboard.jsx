@@ -9,8 +9,8 @@ import axios from "axios";
 import Chart from "react-apexcharts";
 import { Link, NavLink } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
-import ThemeReducer from "../redux/reducer/ThemeReducer";
+import { useSelector } from "react-redux";
+// import ThemeReducer from "../redux/reducer/ThemeReducer";
 
 const Dashboard = () => {
   const themeReducer = useSelector((state) => state.ThemeReducer.mode);
@@ -218,11 +218,11 @@ const Dashboard = () => {
   return (
     <div className="container">
       <h2 className="page-header">Dashboard</h2>
-      <div className="row">
-        <div className="col-6">
-          <div className="row">
+      <div className="row-warrper">
+        <div className="box-6">
+          <div className="row-warrper">
             {statusCarts.map((item, index) => (
-              <div key={index} className="col-6">
+              <div key={index} className="box-6">
                 {/* {item.title} */}
 
                 <Status
@@ -234,7 +234,7 @@ const Dashboard = () => {
             ))}
           </div>
         </div>
-        <div className="col-6">
+        <div className="box-6">
           <div className="dashboard full-height">
             {/* chart */}
             <Chart
@@ -255,7 +255,7 @@ const Dashboard = () => {
             />
           </div>
         </div>
-        <div className="col-4">
+        <div className="box-4">
           <div className="dashboard">
             <div className="dashboard-header">
               <h3>Top Custommers</h3>
@@ -270,11 +270,11 @@ const Dashboard = () => {
               />
             </div>
             <div className="dashboard-footer">
-              <NavLink to="/">View All</NavLink>
+              <NavLink to="/admin">View All</NavLink>
             </div>
           </div>
         </div>
-        <div className="col-8">
+        <div className="box-8">
           <div className="dashboard">
             <div className="dashboard-header">
               <h3> Latest Orders</h3>
@@ -288,7 +288,7 @@ const Dashboard = () => {
               />
             </div>
             <div className="dashboard-footer">
-              <NavLink to="/">View All</NavLink>
+              <NavLink to="/admin">View All</NavLink>
             </div>
           </div>
         </div>

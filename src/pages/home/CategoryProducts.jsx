@@ -21,6 +21,8 @@ const CategoryProducts = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(8);
 
+  
+
   let history = useHistory();
 
   let query = useQuery();

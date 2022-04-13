@@ -62,4 +62,31 @@
   color: var(--text-white);
 }
 
+.sidebar.block {
+  display: block;
+}
+
+.sidebar-footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: var(--main-color);
+}
+
+.sidebar-footer > p {
+  cursor: pointer;
+  transition: all 0.8ms;
+}
+
+.sidebar-footer > p:hover {
+  opacity: 0.8;
+} 
+
+
+@media only screen and (max-width: 63.9375em) {
+  .sidebar-footer {
+    display: block;
+  }
+}
 /* mobile */

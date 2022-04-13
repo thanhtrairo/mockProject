@@ -2,7 +2,7 @@
   padding: 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: var(--topnav-height);
 }
 
@@ -37,7 +37,8 @@
   /* margin-left: 30px; */
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-end;
+
 }
 
 .topnav-right-item {
@@ -100,5 +101,10 @@
 @media only screen and (max-width: 63.9375em) {
   .dropdown-sidebar {
     display: block;
+  }
+
+  .topnav {
+    display: flex;
+    justify-content: space-between;
   }
 }

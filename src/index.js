@@ -13,11 +13,16 @@ const store = createStore(rootReducer);
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
+{/* o day */}
       <App />
+
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")
 );
+
+// sau dat browser route o day
+// dung dat o app js
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

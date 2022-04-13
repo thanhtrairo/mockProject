@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 
 import "./table.css";
 
 const Table = (props) => {
-  const { bodyData, headData, renderHead, renderBody } = props;
-  // console.log(">>>body:", bodyData);
-  // console.log(">>>header:", headData);
+  const { bodyData, headData, renderBody, renderHead, limit } = props;
+
+  // const initDataShow =
+  //   limit && bodyData ? bodyData.slice(0, Number(limit)) : bodyData;
+
+  // // const [dataShow, setDataShow] = useState(initDataShow);
+
+  // let pages = 1;
+
+  // // console.log(">>>>", bodyData);
+
+  // let range = [];
+
+  // if (limit !== undefined) {
+  //   pages = Math.ceil(bodyData.length / Number(limit));
+  //   range = [...Array(pages).keys()];
+  // }
+
+  // const [currPage, setCurrPage] = useState(0);
+
+  // const dataShow = useMemo(() => {
+  //   const start = limit * currPage;
+  //   const end = start + limit;
+  //   return bodyData.slice(start, end);
+  // }, [currPage, bodyData.length]);
+
   return (
     <div>
       <div className="table-wrapper">
@@ -17,11 +40,27 @@ const Table = (props) => {
           ) : null}
           {bodyData && renderBody ? (
             <tbody>
-              {bodyData.map((item, index) => renderBody(item, index))}
+              {bodyData.length > 0 &&
+                bodyData.map((item, index) => renderBody(item, index))}
             </tbody>
           ) : null}
         </table>
       </div>
+      {/* {pages > 1 ? (
+        <div className="table-pagination">
+          {range.map((item, index) => (
+            <div
+              key={index}
+              className={`table-pagination-item ${
+                currPage === index ? "active" : ""
+              }`}
+              onClick={() => setCurrPage(index)}
+            >
+              {item + 1}
+            </div>
+          ))}
+        </div>
+      ) : null} */}
     </div>
   );
 };
