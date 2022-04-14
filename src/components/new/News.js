@@ -1,92 +1,81 @@
-import './News.scss'
-
+import './style/News.scss'
 import { Row, Col } from 'react-bootstrap';
-import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
 import Sidebar from './Sidebar';
-import { withRouter } from 'react-router-dom';
-const News = (props) =>{
+import { withRouter, Link } from 'react-router-dom';
+import useFetch from '../../customize/fetch';
+import DetailNew from './detailnews/DetailNew';
+import clsx from 'clsx'
 
-// = component đimount
-    const [dataPost, setDataPost] = useState([]);
-    const [loading, setLoading] = useState(true);
-    useEffect(() =>{
-        setTimeout(async() =>{
-            try{
-                let res = await axios.get('https://622c5742087e0e041e08c677.mockapi.io/products/products')
-                let data = res && res.data ? res.data : [];
-                let newData =  data.slice(0,5);
-                console.log(">>>Check res: ", newData);
-                setDataPost(newData);
-                setLoading(false);
-               
-            }
-            catch(e){
+const News = (props) => {
 
-            }
-           
-        }, 2000)
-      
-    },[])
-    // console.log(">>> check props: ", dataPost);
-    const handleViewDetailNew = (news) =>{
-        let dataFilter = dataPost.filter(item=> item.id !== news.id);
-        setDataPost(dataFilter);
-        // console.log(">>> check data post: ", dataPost);
-        props.history.push(`/news/${news.id}`)
-       
-    }
-
-    return(
+    const {data: dataPost, isLoading, isError} =
+    useFetch('https://6254073619bc53e234776721.mockapi.io/api/News')
+    return (
         <>
-            <Row className='new-container flex-row-reverse'>
-                <Col lg={9} xl={9} md={12} sm={12} xs={12} className = 'new-right'>
- 
-                <h3 className='content-text'>
-                    Tin tức
-                </h3>
-                <Row>
-                    {dataPost && dataPost.length > 0 &&
-                    dataPost.map(item => {
-                        return(
-                            <Col lg={4} md={4} xs={12} sm={12} className='new-content' key={item.id}> 
-                                <div class="thumbnail"
-                                     onClick={() => handleViewDetailNew(item)}
-                                >
-                                        <Row>
-                                            <div className='image-new'>
-                                                <img sm={12} src={item.imageURL} />
-                                            </div>
-                                            <div class="text-block shadow p-3 mb-5 bg-body ">
-                                                <h4>
-                                                    <a>
-                                                    Tự tin diện áo nhún ngực chuẩn trend 2021
-                                                    </a>
-                                                </h4>
-                                                <p className='date-time'>11/18/2000</p>
-                                                <p>Trước khi đi sâu vào từng cách phối đồ hợp với những bối cảnh nhất định, nàng đừng bỏ qua những lưu ý</p>
-                                            </div>
-                                        </Row>
-                                       
-                                </div>
-                            </Col>
-                        )
-                        
-                    })
-                    
-                    }
-                    
+            <div className={clsx('main_wrap')}>
+                <div className={clsx('header', 'containerCustom', 'py-2')}>
+                <Link to='/'>Trang chủ </Link>
+                    <span>/ Tin tức</span>
+                </div>
+            </div>
+                <Row className='new-container flex-row-reverse'>
+                    <Col lg={9} xl={9} md={12} sm={12} xs={12} className='new-right'>
+                        <>
+                            <h3 className='content-text'>
+                                Tin tức
+                            </h3>
+                            <Row>
+                                {isError === false && isLoading === false && dataPost && dataPost.length > 0 &&
+                                    dataPost.map(item => {
+                                        return (
+                                            <Col lg={4} md={4} xs={12} sm={12} className='new-content' key={item.id}>
+                                                <div className="thumbnail"
+                                                >
+                                                    <Link to={`news/${item.id}`} >
+
+                                                        <Row>
+                                                            <div className='image-new'>
+                                                                <img sm={12} src={item.imageURLLg} />
+                                                            </div>
+                                                            <div className="text-block shadow p-3 mb-5 bg-body ">
+                                                                <h4>
+                                                                    {item.title}
+                                                                </h4>
+                                                                <p className='date-time'>{item.createdAt}</p>
+                                                                <p className='description'>{item.description}</p>
+                                                            </div>
+                                                        </Row>
+                                                    </Link>
+                                                </div>
+                                            </Col>
+                                        )
+                                    })
+                                }
+                                {
+                                    !dataPost && dataPost.length < 0 && 
+                                    <DetailNew />
+                                }
+                                {isLoading === true
+                                    &&
+                                    <Col lg={4} md={4} xs={12} sm={12} className='new-content'>
+                                        Loading...
+                                    </Col>
+                                }
+                                {isError &&
+                                    <Col lg={4} md={4} xs={12} sm={12} className='new-content'>
+                                        Something wrong ...
+                                    </Col>
+                                }
+                            </Row>
+                        </>
+                    </Col>
+                    {/* Sidebar */}
+                    <Col lg={3} xl={3} md={12} sm={12} xs={12} className='new-left justify-content-sm-center'>
+                        <Sidebar />
+                    </Col>
                 </Row>
-                </Col>
-           
-                <Col lg={3} xl={3} md={12} sm={12} xs={12} className = 'new-left justify-content-sm-center'> 
-                    <Sidebar/>
-                </Col>
-            </Row>
-            
         </>
-       
     )
 }
 export default withRouter(News);

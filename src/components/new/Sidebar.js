@@ -1,74 +1,60 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import useFetch from '../../customize/fetch';
+import Category from './Danhmuc';
 
-const Sidebar = (props) =>{
-    const [loading, setLoading] = useState(true);
-    const [dataPost, setDataPost] = useState([]);
+const Sidebar = (props) => {
     const [tempData, setTempData] = useState(null);
-    useEffect(() =>{
-        setTimeout(async() =>{
-            try{
-                let res = await axios.get('https://622c5742087e0e041e08c677.mockapi.io/products/products')
-                let data = res && res.data ? res.data : [];
-                let newData =  data.slice(0,5);
-                setDataPost(newData);
-                setLoading(false);
-            }
-            catch(e){
-
-            }
-           
-        }, 2000)
-      
-    },[])
-    const handleViewDetailNew = (news) =>{
+    const handleViewDetailNew = (news) => {
         let dataFilter = dataPost.filter(item => item.id === news.id);
-        // console.log(">>>check data filter: ",dataFilter);
-        //setDataPost([...dataFilter]);
         let index = dataPost.indexOf(dataFilter[0]);
         dataPost.splice(index, 1);
-        if(tempData){
+        if (tempData) {
             dataPost.unshift(tempData);
         }
         setTempData(dataFilter[0]);
         props.history.push(`/news/${news.id}`);
     }
-    return(
-       
+    const { data: dataPost, isLoading, isError } =
+        useFetch('https://6254073619bc53e234776721.mockapi.io/api/News')
+    return (
         <>
-             <div className='sidebar-blog'>
+            <div className='sidebar-blog'>
                 <h3 className='sidebar-title'>
                     Bài viết mới nhất
                 </h3>
-                {!loading && dataPost && dataPost.length > 0 &&
+                {dataPost && dataPost.length > 0 &&
                     dataPost.map(item => {
-                        return(
-                            <div className='sidebar-child' key={item.id} 
-                            
+                        return (
+                            <div className='sidebar-child' key={item.id}
                                 onClick={() => handleViewDetailNew(item)}
-                            
                             >
-                                <img src={item.imageURL} className="zoom-in"/>
+                                <img src={item.imageURLSm} className="zoom-in" />
                                 <div className='sidebar-text'>
                                     <p className='description'>
-                                        <a>
-                                            {item.description}
-                                        </a> 
+                                        {item.title}
                                     </p>
                                     <p className='date'>
-                                        {item.prices}
+                                        {item.createdAt}
                                     </p>
                                 </div>
                             </div>
-                            
                         )
                     })
-                }  
-                {loading && 
-                    <p>loading</p>
-                }  
+                }
+                {isLoading === true
+                    &&
+                    <div>
+                        Loading...
+                    </div>
+                }
+                {isError &&
+                    <div>
+                        Something wrong ...
+                    </div>
+                }
             </div>
+            <Category />
         </>
     )
 }

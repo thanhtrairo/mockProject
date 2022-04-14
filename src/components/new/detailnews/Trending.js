@@ -1,6 +1,8 @@
+import { Row } from 'react-bootstrap';
+
 const Trending = () => {
     return(
-        <div>
+        <Row>
             <h3 className='content-text'>
             Trending tháng 9/2021
             </h3>
@@ -31,7 +33,7 @@ const Trending = () => {
                             <a>Proin molestie egestas orci ac suscipit risus posuere loremous</a>
                         </li>
                     </ul>
-                <div className=" ordered-list">
+                <div className="ordered-list">
                     <ul>
                     Sample Ordered List
                         <li>
@@ -58,7 +60,7 @@ const Trending = () => {
                     Suspendisse vestibulum lectus in lectus.
                 </p>
             </div>
-        </div>
+        </Row>
     )
 }
 export default Trending;

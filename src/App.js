@@ -9,8 +9,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import Products from './features/products/index'
 import ProductDetail from "./features/products/Components/ProductDetail";
 import Cart from "./features/carts/index";
-import News from "../src/components/new/News";
-import DetailNew from "./components/new/DetailNew";
+import News from "./components/new/News";
+import DetailNew from "./components/new/detailnews/DetailNew";
 import Login from "./features/users/Components/Login";
 import Resgister from "./features/users/Components/Resgister";
 import Profile from "./features/users/Components/Profile";
@@ -61,6 +61,7 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
+    
   );
 }
 
