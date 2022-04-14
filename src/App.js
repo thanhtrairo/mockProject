@@ -2,14 +2,13 @@
 import Navbar from "./components/header/Navbar";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'react-toastify/dist/ReactToastify.css'
 
 import Products from './features/products/index'
 import ProductDetail from "./features/products/Components/ProductDetail";
 import Cart from "./features/carts/index";
-import Home from "./pages/Home";
 import News from "../src/components/new/News";
 import DetailNew from "./components/new/DetailNew";
 import Login from "./features/users/Components/Login";
@@ -19,12 +18,16 @@ import ShippingAdress from "./features/carts/Components/ShippingAdress";
 import PlaceOrderScreen from "./features/orders/Components/PlaceOrderScreen"
 import OrderScreen from "./features/orders/Components/OrderScreen";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="App w-full h-full relative">
-        <Navbar />
+import Home from "./pages/home/Home";
+import Admin from "./admin/components/Admin";
 
+function App() {
+
+  const Main = () => {
+    return (
+      <>
+        <Navbar />
+        
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />
@@ -38,11 +41,23 @@ function App() {
           <Route exact path="/order/:orderId" component={OrderScreen} />
 
           <Route path="/news" exact>
-              <News/>
+            <News />
           </Route>
           <Route path="/news/:id">
-            <DetailNew/>
+            <DetailNew />
           </Route>
+        </Switch>
+      </>
+    );
+  };
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route path="/admin" component={Admin} />
+
+          <Route path="/" component={Main} />
+
         </Switch>
       </div>
     </BrowserRouter>

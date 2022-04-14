@@ -6,6 +6,8 @@ import cartSlice from '../features/carts/cartSlice'
 import userSlice from "../features/users/slices/userSlice";
 import orderSlice from "../features/orders/orderSlice"
 import favoriteSlice from "../features/Favorite/favoriteSlice";
+import ThemeReducer from "../admin/redux/reducer/ThemeReducer";
+import AppReducers from '../admin/redux/reducer/AppReducers'
 
 const store = configureStore({
     reducer: {
@@ -14,7 +16,9 @@ const store = configureStore({
         carts: cartSlice,
         users: userSlice,
         orders: orderSlice,
-        favorites: favoriteSlice
+        favorites: favoriteSlice,
+        ThemeReducer: ThemeReducer,
+        AppReducers: AppReducers
     }
 })
 

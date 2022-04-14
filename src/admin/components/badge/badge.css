@@ -1,0 +1,27 @@
+.badge {
+  padding: 6px 11px;
+  color: var(--text-white);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  opacity: 1;
+  transition: all 0.8ms;
+}
+
+.badge:hover {
+  opacity: 0.8;
+}
+
+.badge-danger {
+  background-color: red;
+}
+.badge-success {
+  background-color: green;
+}
+.badge-primary {
+  background-color: blue;
+}
+.badge-warning{
+  background-color: orange;
+}
+
+

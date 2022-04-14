@@ -277,7 +277,7 @@ function ProductList() {
                     <div className={clsx(styles.category, styles.categorySibar, { [styles.translateSibar]: sidebar }, 'd-none', 'd-sm-block', 'col-sm-4', 'col-md-3', 'py-3')}>
                         <ul>
                             <li>
-                                <div className={clsx('title')} onClick={(handledownCategory)}>
+                                <div className={clsx('titleCategories')} onClick={(handledownCategory)}>
                                     <span>Danh mục sản phẩm</span><span>{downCategory === 'd-block' ? '-' : '+'}</span>
                                 </div>
                                 <ul className={downCategory}>
@@ -298,7 +298,7 @@ function ProductList() {
                                 </ul>
                             </li>
                             <li>
-                                <div className={clsx('title')} onClick={(handledownBrand)}>
+                                <div className={clsx('titleCategories')} onClick={(handledownBrand)}>
                                     <span>Thương hiệu</span><span>{downBrand === 'd-block' ? '-' : '+'}</span>
                                 </div>
                                 <ul className={downBrand}>
@@ -318,7 +318,7 @@ function ProductList() {
                                 </ul>
                             </li>
                             <li>
-                                <div className={clsx('title')} onClick={(handledownPrice)}>
+                                <div className={clsx('titleCategories')} onClick={(handledownPrice)}>
                                     <span>Lọc giá</span><span>{downPrice === 'd-block' ? '-' : '+'}</span>
                                 </div>
                                 <ul className={downPrice}>
