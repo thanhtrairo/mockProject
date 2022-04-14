@@ -111,6 +111,11 @@ a:hover {
 .form {
   padding: 0 0 30px;
 }
+ @media only screen and (max-width: 600px) {
+  .form {
+    padding: 0;
+  }
+ }
 .form label {
   padding: 10px 0;
   color: #8a8a8a;
@@ -171,6 +176,7 @@ a:hover {
 }
 .table_bordered {
   background-color: #f3f3f3;
+  min-width: auto;
 }
 .subtotal_order {
   margin: 0 auto

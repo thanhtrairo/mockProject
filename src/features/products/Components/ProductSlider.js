@@ -84,6 +84,9 @@ function ProductSlider({ product }) {
     const [error, setError] = useState(false)
     const [compeleteFavorite, setCompeleteFavorite] = useState(false)
     const { favoriteItems } = useSelector(state => state.favorites)
+    useEffect(() => {
+        localStorage.setItem("Favorites", JSON.stringify(favoriteItems))
+    }, [favoriteItems])
     const handleAddFavorite = (product) => {
 
         const postFavorite = async (favorite) => {
@@ -95,7 +98,9 @@ function ProductSlider({ product }) {
                     },
                 }
                 const productInFavorite = favoriteItems.find(fav => fav.idProduct === favorite.idProduct)
-                if (!productInFavorite && userLogin.id) {
+                const productUserInFavorite = favoriteItems.find(fav => fav.idUser === favorite.idUser)
+
+                if ((!productInFavorite || !productUserInFavorite) && userLogin.id) {
                     const { data } = await axios.post(ApiFavorites, favorite, config)
                     dispatch(addFavorite(data))
                 } else {
