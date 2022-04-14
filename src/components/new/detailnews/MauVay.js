@@ -1,6 +1,11 @@
+import { Row } from 'react-bootstrap';
+import { Collapse} from "reactstrap"
+import React from 'react'
+
 const MauVay = () => {
+    const [isOpen, setIsOpen] = React.useState(true);
     return(
-        <div>
+        <Row>
             <h3 className='content-text'>
                 10 mẫu váy liền thân công sở giúp nâng cấp thời trang mùa hè của bạn
             </h3>
@@ -9,82 +14,91 @@ const MauVay = () => {
                 tinh tế và sang trọng chị em có thể vừa diện váy liền đi làm cũng như đi chơi. Dưới đây là 10 mẫu váy liền thân công 
                 sở mùa hè muốn giới thiệu đến bạn. Chắc hẳn chúng sẽ khiến bạn trở nên lung linh, xinh đẹp trong một mùa hè sắp tới.
             </p>
-            <div class="shadow-sm p-3 mb-5 bg-body rounded content-new-detail">
-                <ul>
+            <div className="shadow-sm p-3 mb-5 bg-body rounded content-new-detail">
+                <ul className='table-of-content'>
+                        Nội dung bài viết
+                        <span
+                            color="primary"
+                            onClick={() => {
+                                setIsOpen(!isOpen)
+                            }}
+                        >  [{isOpen ? "Ẩn" : "Hiện"}]
+                        </span>
+                        <Collapse isOpen={isOpen}>
                     <li>
-                        <a>
+                        <a href="#id1">
                             1. Váy liền thân công sở mang đến vẻ đẹp thanh lịch, sang trọng
                         </a>
                     </li>
                     <li>
-                        <a>
+                        <a href="#id2">
                             2. 10 mẫu váy liền thân công sở mùa hè đẹp mê ly
                         </a>
                         <ul>
                         <li>
-                                <a>
+                                <a href="#id2_1">
                                     2.1. Mẫu váy liền thân dáng suông
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#id2_2">
                                     2.2. Mẫu váy xòe trẻ trung
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#id2_3">
                                     2.3. Mẫu váy body ôm sát
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#id2_4">
                                     2.4. Mẫu đầm đuôi cá
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#id2_5">
                                     2.5. Mẫu váy liền thân dài thắt eo
                                 </a>
                             </li>
 
                             <li>
-                                <a>
+                                <a href="#id2_6">
                                     2.6. Mẫu váy giả vest sang trọng
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#id2_7">
                                     2.7. Mẫu váy liền thân cổ vuông
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#id2_8">
                                     2.8. Mẫu váy chữ A tôn dáng
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#id2_9">
                                     2.9. Váy body cổ chéo kèm đai
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a href="#id2_10">
                                     2.10. Váy bánh bèo kèm họa tiết
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    
+                    </Collapse>
                 </ul>
             </div>
            {/* <h2>Cách 1: Cách phối đồ hack chiều cao cho nữ với các loại quần cạp cao</h2> */}
-            <p>
+            <p >
                 Váy liền thân công sở mang đến vẻ đẹp thanh lịch, sang trọng <br/>
                 Chắc hẳn mỗi chị em phụ nữ đều sẽ sở hữu cho riêng mình một vài mẫu váy liền thân.  Bởi các mẫu váy liền luôn mang đến 
                 sự tự tin, thoải mái và giúp che đi những khuyết điểm của cơ thể một cách hoàn hảo nhất.
             </p>
-            <div className="new-image">
-                <img src="https://file.hstatic.net/1000197303/file/vay_lien_than_mau_den_2c18328ddce944299df73bc1637972dc_grande.jpeg"/>
+            <div className="new-image" id="id1">
+                <img src="https://file.hstatic.net/1000197303/file/vay_lien_than_mau_den_2c18328ddce944299df73bc1637972dc_grande.jpeg" alt='Mẫu váy' />
                 <p className="content-image"> 
                     Váy liền thân công sở mang đến nét đẹp thanh lịch
                 </p>
@@ -104,13 +118,13 @@ const MauVay = () => {
                 Hãy cùng tìm hiểu về 10 mẫu váy liền thân mùa hè cho các cô nàng công sở luôn xinh đẹp, mát mẻ, nổi bật và đánh bay nỗi lo đụng hàng 
                 trong mùa hè nóng bỏng ngay dưới đây. <br/>
 
-                <b>10 mẫu váy liền thân công sở mùa hè đẹp mê ly</b>
+                <b id="id2">10 mẫu váy liền thân công sở mùa hè đẹp mê ly</b>
                 Váy liền thân công sở mùa hè luôn thay đổi và bắt kịp các xu hướng thời trang mới nhất. Chính vì vậy, dù trải qua bao năm thì mẫu váy 
                 liền thân mùa hè vẫn không bao giờ có xu hướng giảm nhiệt. Trong tủ quần áo của chị em có bao nhiêu mẫu váy công sở này thì vẫn cảm 
                 thấy không bao giờ đủ. Mỗi mẫu váy sẽ mang đến những đặc điểm riêng, hãy cùng chúng tôi khám phá nét đẹp tuyệt vời của từng mẫu váy 
                 công sở mùa hè ngay sau đây.
             </p>
-            <p><i>Mẫu váy liền thân dáng suông</i><br/>
+            <p><i id="id2_1">Mẫu váy liền thân dáng suông</i><br/>
                 Với người gầy, váy đầm suông sẽ làm tạo cảm giác đầy đặn, hack dáng một cách tuyệt đối. Ngược lại, với các cô gái có phần hơi tròn trịa 
                 lại dễ dàng che đi khuyết điểm vòng eo bánh mì. Chính vì vậy, váy suông vẫn luôn là sự lựa chọn hàng đầu của nhiều chị em công sở.
             </p>
@@ -130,7 +144,7 @@ const MauVay = () => {
                 <span>Xem thêm:<i> Điểm Danh Các Mẫu Áo Vest Nữ Trẻ Trung Cho Nàng Công Sở 2020</i></span>
             </div><br/> <br/>
 
-            <p><i>Mẫu váy xòe trẻ trung</i><br/>
+            <p><i id="id2_2">Mẫu váy xòe trẻ trung</i><br/>
                 Mẫu váy xòe được biết đến với phong cách trẻ trung, năng động. Với phần eo bó sát và xòe rộng phía dưới sẽ giúp tôn lên phần 
                 eo cong mềm mại, đầy lôi cuốn. Đối với chị em có vòng eo con kiến thì mẫu váy xòe sẽ là lựa chọn không nên bỏ qua.
             </p>
@@ -150,7 +164,7 @@ const MauVay = () => {
                 <span><br/> <br/>Xem thêm:<i>Bật Mí Phong Cách Ăn Mặc Trẻ Trung Cho Nàng Công Sở "Hack" Tuổi</i></span>
             </div>
 
-            <p><i>Mẫu váy body ôm sát</i><br/>
+            <p><i id="id2_3">Mẫu váy body ôm sát</i><br/>
                 Còn mẫu váy nào có thể khoe trọn vẻ đẹp cả ba vòng hơn những mẫu váy liền thân ôm sát cơ thể. Chắc hẳn bạn sẽ khiến 
                 cho mùa hè thêm nóng bức, đốt mắt người nhìn khi diện những chiếc đầm body quyến rũ nhưng không kém phần sang trọng, thanh lịch.
             </p>
@@ -173,7 +187,7 @@ const MauVay = () => {
                 <span><br/> <br/>Xem thêm:<i>6 Kiểu Áo Comple Nữ Mới Nhất 2020 Được Nàng Công Sở Ưa Chuộng</i></span>
             </div>
 
-            <p><i>Mẫu đầm đuôi cá</i><br/>           
+            <p><i id="id2_4">Mẫu đầm đuôi cá</i><br/>           
                 Những chiếc đầm liền thân đuôi cá vừa tạo nét dịu dàng, uyển chuyển vừa giúp cho chiếc công sở không quá khô khan, nghiêm 
                 túc khi diện lên người. Chắc hẳn các cô nàng công sở sẽ không để tủ đồ của mình thiếu đi mẫu váy độc đáo, ấn tượng này.
             </p>
@@ -181,13 +195,13 @@ const MauVay = () => {
                 <p>Váy liền thân đuôi cá màu hồng</p> 
             </div>
 
-            <p><i> Mẫu váy liền thân dài thắt eo</i><br/>                     
+            <p><i id="id2_5"> Mẫu váy liền thân dài thắt eo</i><br/>                     
                 Thật đáng tiếc nếu bạn bỏ lỡ những mẫu váy liền thân dài kèm đai eo trong tủ quần áo công sở của mình. Thiết kế tà váy 
                 dài ôm sát giúp đôi chân trở nên dài hơn. Đai thắt eo vừa các tác dụng trang trí, vừa tạo điểm nhấn tuyệt vời cho vòng 
                 hai thêm thon gọn, mềm mại.<br/><br/>
             </p>
             <div className="new-image">
-                <p>Váy dài liền thân thắt eo</p> 
+                <p><>Váy dài liền thân thắt eo</></p> 
                 <span className="content-image"> 
                     Màu xanh của váy rất thích hợp mặc vào những ngày hè nắng nóng. Tà váy dài, mềm mại sẽ đung đưa theo từng nhịp bước 
                     chân tạo vẻ đẹp tinh tế, sang trọng. Bạn có thể diện mẫu váy này đi làm, đi chơi hay tham dự các sự kiện đều rất ok.
@@ -195,7 +209,7 @@ const MauVay = () => {
                 <span><br/> <br/>Xem thêm:<i>Chân Váy Bút Chì Dài Xẻ Tà: Mẫu Váy Kinh Điển Cho Nàng Công Sở</i></span>
             </div>
 
-            <p><i>Mẫu váy giả vest sang trọng</i><br/>                               
+            <p><i id="id2_6">Mẫu váy giả vest sang trọng</i><br/>                               
                 Mẫu váy giả vest rất thích hợp với những cô nàng công sở có cá tính mạnh mẽ, năng động. Vừa không quá thô cứng, vừa 
                 giữ được nét thanh lịch cần có, váy liền thân giả vest luôn làm các chị em náo loạn, đứng ngồi không yên mỗi lần trình làng.<br/><br/>
             </p>
@@ -208,7 +222,7 @@ const MauVay = () => {
                 </span>
             </div>
 
-            <p><i>Mẫu váy liền thân cổ vuông</i><br/>                                         
+            <p><i id="id2_7">Mẫu váy liền thân cổ vuông</i><br/>                                         
                 Mẫu váy liền thân công sở mùa hè cổ vuông không phổ biến như các mẫu váy cổ tròn hay cắt chéo khác nhưng nét đẹp mà dòng 
                 váy này mang lại cho người mặc là điều không thể phủ nhận. Với thiết kế cổ vuông, váy liền tạo nên nét thanh lịch, sang 
                 trọng và vô cùng quý phái.
@@ -228,7 +242,7 @@ const MauVay = () => {
                 </span>
             </div>
 
-            <p><i> Mẫu váy chữ A tôn dáng</i><br/>                            
+            <p><i id="id2_8"> Mẫu váy chữ A tôn dáng</i><br/>                            
                 Váy chữ A luôn là sự lựa chọn hoàn hảo cho mọi dáng người dù gầy hay béo. Mùa hè năm nay chắc chắn bạn sẽ không 
                 thể bỏ qua mẫu váy ấn tượng này.
             <br/><br/>
@@ -248,7 +262,7 @@ const MauVay = () => {
                 <span><br/> <br/>Xem thêm:<i>Cách Phối Đồ Với Quần Tây Nữ Thanh Lịch Cho Cô Nàng Công Sở</i></span>
             </div>
 
-            <p><i>Váy body cổ chéo kèm đai</i><br/>                                          
+            <p><i id="id2_9">Váy body cổ chéo kèm đai</i><br/>                                          
                 Với thiết kế cổ chéo, váy body kèm đai vừa khoe trọn 3 vòng cơ thể, vừa tôn lên dáng người thon gọn, 
                 mảnh mai cho cô nàng công sở. Chắc hẳn khi mặc trên người mẫu váy này, bạn sẽ trở thành tâm điểm thu 
                 hút sự chú ý của rất nhiều chàng trai lẫn cô gái cho mà xem.
@@ -262,7 +276,7 @@ const MauVay = () => {
                 </span>
             </div>
 
-            <p><i>Váy bánh bèo kèm họa tiết</i><br/>                                             
+            <p><i id="id2_10">Váy bánh bèo kèm họa tiết</i><br/>                                             
                 Nếu bạn là một người theo đuổi phong cách thời trang dịu dàng, nhẹ nhàng và nữ tính thì những mẫu 
                 đầm bánh bèo kèm họa tiết sẽ là lựa chọn không gì có thể lý tưởng hơn.
             <br/><br/>
@@ -276,7 +290,7 @@ const MauVay = () => {
                     mình những mẫu váy diện màu hè vừa ấn tượng và đẹp mắt nhất năm nay nhé.
                 </span>
             </div>
-        </div>
+        </Row>
     )
 }
 export default MauVay;

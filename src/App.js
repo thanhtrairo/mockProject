@@ -1,7 +1,6 @@
 // import "./App.css";
 import Navbar from "./components/header/Navbar";
-
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route ,Switch } from "react-router-dom";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
@@ -12,15 +11,17 @@ import Cart from "./features/carts/index";
 import Home from "./pages/Home";
 import Banner from "./components/banner/Banner";
 import News from "../src/components/new/News";
-import DetailNew from "./components/new/DetailNew";
+import DetailNew from "./components/new/detailnews/DetailNew";
+import ScrollButton from "./components/scroll/ScrollToTop"
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollButton/>
+   
       <div className="App w-full h-full relative">
         <Navbar />
         <Banner />
-
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />
@@ -32,14 +33,10 @@ function App() {
           <Route path="/news/:id">
             <DetailNew/>
           </Route>
-        {/* <Banner /> */}
-        
-        
-          {/* <Route exact path="/products/:id" component={ProductDetail} />
-          <Route exact path="/cart" component={Cart} /> */}
         </Switch>
       </div>
     </BrowserRouter>
+    
   );
 }
 
