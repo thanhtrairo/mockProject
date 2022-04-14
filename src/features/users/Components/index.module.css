@@ -1,0 +1,186 @@
+
+p {
+  margin-bottom: 0;
+}
+a:hover {
+  color: #000;
+}
+/* login , resgister */
+.login_center {
+  padding: 50px 0;
+}
+
+.Login,
+.Login2 {
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  padding: 35px 30px 30px;
+  box-shadow: 0 1px 11px rgba(168, 168, 168, 0.27);
+  text-align: center;
+}
+
+.Login input {
+  width: 100%;
+  padding: 20px 20px;
+  margin-top: 20px;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  color: #8a8a8a;
+}
+
+.Login input:focus {
+  outline: 0px;
+}
+
+.Login button,
+.Login2 button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px 0;
+  border: 0;
+  background-color: #000;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.Login button a,
+.Login2 button a {
+  text-transform: uppercase;
+  color: white;
+}
+
+.Login p {
+  margin-top: 30px;
+}
+
+.Login p a {
+  color: #7a7a7a;
+}
+
+/* profile */
+.author_card {
+  position: relative;
+  z-index: -1;
+}
+.author_card_cover {
+  height: 100px;
+  width: 100%;
+  background-size: cover;
+  background-image: url("https://gust.com/assets/blank_slate/Gust_Profile_CoverPhoto_Blank-21edf1e2890708d5a507204f49afc10b7dc58eb7baea100b68a1bc2c96948297.png");
+}
+.author_card_profile {
+  padding: 20px 10px;
+}
+.author_card_avatar {
+  padding: 0 20px;
+}
+.author_card_avatar img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 100px;
+  box-shadow: 0px 0px 27px 0px rgba(0, 0, 0, 0.377);
+}
+.wizard .nav_link button {
+  padding: 15px 20px;
+  font-size: 13px;
+  background-color: #ffffff;
+  color: black;
+  width: 100%;
+  text-align: start;
+  border-radius: 0;
+  text-transform: uppercase;
+  border-top: 1px solid #e4e4e4;
+}
+.wizard .nav_link .active {
+  background-color: #e5fee9;
+  color: black;
+}
+.badge2 {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #ffffff;
+}
+.form {
+  padding: 0 0 30px;
+}
+.form label {
+  padding: 10px 0;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.form input {
+  padding: 20px 10px;
+  font-size: 17px;
+  background-color: #e5fee9;
+}
+.form_container {
+  padding: 0 30px;
+}
+.form_container button {
+  padding: 15px 0;
+  border: 0px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-size: 13px;
+  background-color: #000;
+  color: #ffffff;
+}
+
+/* orderScreen */
+.order_detail p {
+  margin-top: 2px;
+}
+.order_detail {
+  padding: 30px 0;
+  background-color: #e5fee9;
+}
+.order_detail h5 {
+  margin-bottom: 6px;
+}
+.order_box {
+  border-radius: 100px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+.order_product {
+  margin: 40px 0;
+  border-bottom: 2px solid #f3f3f3;
+  position: relative;
+}
+.order_product h4 {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.order_product img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+.table_bordered {
+  background-color: #f3f3f3;
+}
+.subtotal_order {
+  margin: 0 auto
+}
+.subtotal_order button {
+  width: 100%;
+  padding: 15px 0;
+  border: 0px;
+  text-transform: uppercase;
+  font-size: 13px;
+  background-color: #000;
+  color: #ffffff;
+}

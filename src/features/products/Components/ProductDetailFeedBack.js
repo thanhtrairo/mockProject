@@ -1,12 +1,28 @@
 
 import clsx from 'clsx'
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useMemo, useState, memo } from 'react'
 import styles from '../index.module.scss'
+import img from '../../../features/users/img/user.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { ApiProducts } from '../../../api/Api'
+import axios from 'axios'
+import { updateProduct } from '../productSlice'
+import { selectProduct } from '../selectProductSlice'
+import moment from 'moment'
+import Message from '../../Components/Error'
+import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-function ProductDetailFeedBack() {
+function ProductDetailFeedBack({ product }) {
     const tabs = ['Payment', 'Lie', 'Comment']
 
-    const [type, setType] = useState('Payment')
+    const [comment, setComment] = useState("")
+
+    const [sort, setSort] = useState()
+
+    const [error, setError] = useState()
+
+    const [type, setType] = useState('Comment')
     const [post, setPost] = useState({
         Payment: 'd-none',
         Lie: 'd-none',
@@ -34,6 +50,61 @@ function ProductDetailFeedBack() {
             })
         }
     }, [type])
+
+    const dispatch = useDispatch()
+    const userLogin = useSelector(state => state.users.userLogin)
+
+    const handleReview = (e) => {
+        e.preventDefault()
+        if (comment.trim()) {
+            setComment("")
+            const productUpdateReview = async (product) => {
+                try {
+                    const config = {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                    const { data } = await axios.put(`${ApiProducts}/${product.id}`, product, config)
+                    dispatch(updateProduct(data))
+                    dispatch(selectProduct(data))
+                } catch (error) {
+                    console.log(`error: ${error}`)
+                }
+            }
+            productUpdateReview({
+                ...product,
+                review: [
+                    ...product.review,
+                    {
+                        comments: comment,
+                        name: userLogin.name,
+                        userId: userLogin.id,
+                        createdAt: new Date()
+                    }
+                ]
+            })
+        } else {
+            setError("Please enter a comments")
+        }
+    }
+
+    const sortReviews = useMemo(() => {
+        if (Object.keys(product).length > 0) {
+            const newReviews = [...product.review]
+            if (sort === 'old') {
+                return newReviews.sort()
+            } else {
+                return newReviews.sort().reverse()
+            }
+        }
+    }, [sort, product])
+    const history = useHistory()
+
+    const handleSubmit = () => {
+        history.push(`/login?redirect=products/${product.id}`)
+    }
+
     return (
         <div className={clsx(styles.feedback)}>
             <div>
@@ -82,30 +153,71 @@ function ProductDetailFeedBack() {
                 </div>
                 <div className={clsx(post.Comment, styles.Comment)}>
                     <div className={clsx(styles.title)}>
-                        <p>bình luận</p>
+                        <p>{`(${product.review?.length})`} bình luận</p>
                         <div>
                             <span>Sắp xếp theo</span>
-                            <select>
-                                <option value="">Mới nhất</option>
-                                <option value="">Cũ nhất</option>
+                            <select value={sort} onChange={e => setSort(e.target.value)}>
+                                <option value="default">Chọn</option>
+                                <option value="new">Mới nhất</option>
+                                <option value="old">Cũ nhất</option>
                             </select>
                         </div>
                     </div>
-                    <div className={clsx(styles.CommentInput,'row')}>
-                        <div className={clsx('col-2','col-sm-1')}>
-                            <img src='//product.hstatic.net/200000397757/product/color_do-01_35d9df75f1734fb683e1aee3ade80f15_large.jpg' />
-                        </div>
-                        <div className={clsx('col-8','col-sm-9')}>
-                            <textarea rows="4" />
-                        </div>
-                        <div className={clsx('col-2')} >
-                            <button>Bình luận</button>
-                        </div>
+                    <div className={clsx(styles.Reviews)}>
+                        <ul>
+                            {(Object.keys(product).length > 0 ? (sort ? sortReviews : product.review) : []).map((x, index) => (
+                                <li key={index}>
+                                    <div className={clsx(styles.review, "d-flex", "justify-content-start", "align-items-center")}>
+                                        <div className={clsx(styles.reviewsImage)}>
+                                            <img src={img} alt={img} />
+                                        </div>
+                                        <div className={clsx(styles.commentList)}>
+                                            <h2>{x.name}</h2>
+                                            <p>{x.comments}</p>
+                                            <h3>{moment(x.createdAt).calendar()}</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                            ))
+                            }
+                        </ul>
                     </div>
+                    {error && <Message variant="alert-danger">{error}</Message>}
+                    {userLogin.id
+                        ? <div className={clsx(styles.CommentInput, 'row')}>
+                            <div className={clsx('col-2', 'col-sm-1')}>
+                                <img src={img} alt={img} />
+                            </div>
+                            <div className={clsx('col-8', 'col-sm-9')}>
+                                <textarea
+                                    rows="4"
+                                    value={comment}
+                                    onChange={e => setComment(e.target.value)}
+                                />
+                            </div>
+                            <div className={clsx('col-2')} >
+                                <button onClick={handleReview}>Bình luận</button>
+                            </div>
+                        </div>
+                        :
+                        <div className=" alert alert-danger text-center my-3">
+                            Vui lòng đăng nhập để bình luận
+                            <a
+                                className="btn btn-danger mx-5 px-5 py-3"
+                                style={{
+                                    fontSize: "12px",
+                                }}
+                                href=""
+                                onClick={handleSubmit}
+                            >
+                                Đăng nhập ngay
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     )
 }
 
-export default ProductDetailFeedBack
+export default memo(ProductDetailFeedBack)

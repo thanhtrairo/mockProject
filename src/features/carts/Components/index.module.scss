@@ -25,12 +25,11 @@
         }
         .prices {
             color: rgb(192, 36, 36);
-            button {
-                margin-left: 10px;
-                border: 1px solid #ccc;
-                padding: 4px 6px;
-                color: #fff;
-                background-color: rgb(192, 36, 36);
+            i {
+                margin-left: 12px;
+                font-size: 18px;
+                color: #000;
+                cursor: pointer;
             }
         }
         .cartQuatity {
@@ -50,7 +49,7 @@
     }
     .cartBuy {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         margin: 16px 3% 0 0;
         button {

@@ -91,6 +91,11 @@
                         &:focus {
                             outline: none;
                         }
+                        @include mobile {
+                            option {
+                                font-size: 60%;
+                            }
+                        }
                     }
                 }
                 @include table {
@@ -128,6 +133,12 @@
 }
 
 .productImage {
+    overflow: hidden;
+    &:hover {
+        img {
+            transform: translate(0, -5%);
+        }
+    }
     .image {
         position: relative;
         .icon {
@@ -141,6 +152,10 @@
                 }
                 button {
                     border: none;
+                    &:focus {
+                        border: none;
+                        outline: none;
+                    }
                     img {
                         width:20px;
                         height: 20px;
@@ -211,7 +226,7 @@
                     }
                     button {
                         border: none;
-                        img {
+                        img, i {
                             width:20px;
                             height: 20px;
                         }
@@ -344,6 +359,11 @@
                     &:focus {
                         outline: none;
                     }
+                    @include mobile {
+                        option {
+                            font-size: 60%;
+                        }
+                    }
                 }
             }
             .CommentInput {
@@ -362,6 +382,44 @@
                 }
                 button {
                     height: 50px;
+                }
+            }
+            .Reviews {
+                li {
+                    list-style: none;
+                    margin-bottom: 6px;
+                }
+                .review {
+                    .reviewsImage {
+                        img {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                    .commentList {
+                        border-radius: 10px;
+                        background-color: #3A3B3C;
+                        color: #fff;
+                        margin-left: 5px;
+                        min-width: 200px;
+                        max-width: 400px;
+                        padding: 6px 10px;
+                        h2 {
+                            margin-bottom: 0;
+                            font-size: 14px;
+                            margin-bottom: 6px;
+                            font-weight: bold;
+                        }
+                        p {
+                            margin-bottom: 0;
+                            font-size: 16px;
+                        }
+                        h3 {
+                            font-size: 10px;
+                            opacity: 0.8;
+                            float: right;
+                        }
+                    }
                 }
             }
         }

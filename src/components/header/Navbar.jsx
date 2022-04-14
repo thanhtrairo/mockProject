@@ -11,16 +11,37 @@ import { NavLink } from "react-router-dom";
 
 import "../../index.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import styles from "./navbar.module.css"
+import clsx from "clsx";
+import { userLogout } from "../../features/users/slices/userSlice";
+import { useHistory } from "react-router-dom";
+import { removeCarts } from "../../features/carts/cartSlice";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
+
+  const history = useHistory()
 
   const showMenu = () => {
     setActive(!active);
   };
 
-  const carts = useSelector(state => state.carts)
+  const [show, setShow] = useState(false)
+  const carts = useSelector(state => state.carts.cartItems)
+  const dispatch = useDispatch()
+
+  const userLogin = useSelector(state => state.users.userLogin)
+
+  const handleLogout = () => {
+    localStorage.removeItem("userLogin")
+    localStorage.removeItem("cartItems")
+    localStorage.removeItem("shippingAdress")
+    dispatch(userLogout())
+    dispatch(removeCarts())
+    history.push("/")
+  }
 
   return (
     <>
@@ -86,7 +107,25 @@ const Navbar = () => {
               <AiOutlineSearch />
             </div>
             <div className="text-black hover:text-red-600 transition-all cursor-pointer duration-300">
-              <HiOutlineUser />
+              <div className={clsx(styles.icons)} onClick={() => setShow(!show)}>
+                <HiOutlineUser />
+                {show && <ul className={clsx(styles.menuChildren)}>
+                  {Object.keys(userLogin).length === 0
+                    ? <Link to="/login">
+                      <li>Login</ li>
+                    </Link>
+                    : <Link to="/profile">
+                      <li>Profile</ li>
+                    </Link>}
+                  {Object.keys(userLogin).length !== 0
+                    ? <Link to="" onClick={handleLogout}>
+                      <li>Logout</li>
+                    </Link>
+                    : <Link to="/resgister">
+                      <li>Register</li>
+                    </Link>}
+                </ul>}
+              </div>
             </div>
             <Link to='/carts'>
               <div className="text-black hover:text-red-600 transition-all cursor-pointer duration-300 relative">
@@ -94,7 +133,7 @@ const Navbar = () => {
                   {carts.length ? carts.length : 0}
                 </span>
                 <AiOutlineShoppingCart />
-              </div>            
+              </div>
             </Link>
           </div>
         </div>

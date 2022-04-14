@@ -1,17 +1,20 @@
 
-import clsx from 'clsx';
 import React from 'react'
 import { AiOutlineCheck } from "react-icons/ai";
 
 import styles from './index.module.scss'
 
-function Modal() {
+function Modal({children}) {
   return (
-    <div className={clsx(styles.compeleteCart)}>
-      <div className={clsx(styles.icon)}>
-        <AiOutlineCheck />
+    <div className={styles.wrapRelative}>
+      <div className={styles.warp}>
+        <div className={styles.compeleteCart}>
+          <div className={styles.icon}>
+            <AiOutlineCheck />
+          </div>
+          <p>{children}</p>
+        </div>
       </div>
-      <p>Sản phẩm đã được thêm vào giỏ</p>
     </div>
   )
 }

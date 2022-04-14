@@ -8,7 +8,7 @@ import clsx from 'clsx'
 
 import ProductComponent from './ProductComponent'
 import styles from '../index.module.scss'
-import Api from '../../../api/Api'
+import { ApiProducts } from '../../../api/Api'
 
 function ProductList() {
 
@@ -64,7 +64,7 @@ function ProductList() {
             }
             setProductType(newProductType)
         }
-    }, [products.length])
+    }, [products])
 
     const [productBrand, setProductBrand] = useState()
 
@@ -79,7 +79,7 @@ function ProductList() {
             }
             setProductBrand(newProductBrand())
         }
-    }, [products.length])
+    }, [products])
 
     const [productPrice, setProductPrice] = useState()
 
@@ -94,36 +94,37 @@ function ProductList() {
             }
             setProductPrice(newProductPrice())
         }
-    }, [products.length])
+    }, [products])
     const dispatch = useDispatch()
 
     const totalProductJean = useMemo(() => {
         const count = products.filter(product => product.type === '1').length
         return count
-    }, [products.length])
+    }, [products])
 
     const totalProductTShirt = useMemo(() => {
         const count = products.filter(product => product.type === '2').length
         return count
-    }, [products.length])
+    }, [products])
 
     const totalProducTaccessory = useMemo(() => {
         const count = products.filter(product => product.type === '3').length
         return count
-    }, [products.length])
+    }, [products])
 
-    const fetchProducts = async () => {
-        try {
-            const results = await axios.get(Api)
-            dispatch(getProduct(results.data))
-        } catch (error) {
-            console.log("Err: ", error)
-        }
-    }
 
     useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const results = await axios.get(ApiProducts)
+                dispatch(getProduct(results.data))
+                localStorage.setItem("products", JSON.stringify(results.data))
+            } catch (error) {
+                console.log("Err: ", error)
+            }
+        }
         fetchProducts()
-    }, [])
+    }, [dispatch])
 
     const converType = (type) => {
         if (type === '1') return 'Quần Jean'
@@ -170,6 +171,7 @@ function ProductList() {
         setFindProductPrice(e.target.value)
         setSelectSortFind({ isFind: true })
     }
+    const [sort, setSort] = useState()
 
     const productFind = useMemo(() => {
 
@@ -192,9 +194,7 @@ function ProductList() {
         }
 
         return products
-    }, [findProductType, findProductBrand, findProductPrice])
-
-    const [sort, setSort] = useState()
+    }, [findProductType, findProductBrand, findProductPrice, products])
 
     const handleSort = (e) => {
         setSort(e.target.value)
@@ -237,7 +237,7 @@ function ProductList() {
         }
 
         return newArr
-    }, [sort])
+    }, [sort, products])
 
     const handleSortFindProducts = useMemo(() => {
         if (selectSortFind?.isSort === true) {
@@ -250,7 +250,19 @@ function ProductList() {
             return productFind
         }
 
-    }, [sort, check])
+    }, [selectSortFind?.isSort, selectSortFind?.isFind, sortProduct, productFind])
+
+    // const [search, setSearch] = useState()
+
+    // const hanleSearchProducts = useMemo(() => {
+    //     const newArr = handleSortFindProducts?.length > 0 ? handleSortFindProducts : products
+    //     if (search) {
+    //         const arrSearch = newArr.filter(product => product.name.includes(search))
+    //         return arrSearch
+    //     }else {
+    //         return newArr
+    //     }
+    // }, [handleSortFindProducts, search, products])
 
     const [sidebar, setSidebar] = useState(false)
 
@@ -259,10 +271,10 @@ function ProductList() {
             <div className={clsx('containerCustom', 'my-4')}>
                 <img src="//theme.hstatic.net/200000397757/1000764296/14/collection-banner.jpg?v=860" alt="" />
             </div>
-            <div className={clsx("containerCustom",styles.mainProduct)}>
-                <div className={clsx("row",styles.productContent)}>
-                    <div onClick={() => setSidebar(!sidebar)} className={clsx(styles.iconSidebar,'d-block', 'd-sm-none','col-1')}>☰</div>
-                    <div className={clsx(styles.category,styles.categorySibar,{[styles.translateSibar]: sidebar}, 'd-none', 'd-sm-block', 'col-sm-4', 'col-md-3', 'py-3')}>
+            <div className={clsx("containerCustom", styles.mainProduct)}>
+                <div className={clsx("row", styles.productContent)}>
+                    <div onClick={() => setSidebar(!sidebar)} className={clsx(styles.iconSidebar, 'd-block', 'd-sm-none', 'col-1')}>☰</div>
+                    <div className={clsx(styles.category, styles.categorySibar, { [styles.translateSibar]: sidebar }, 'd-none', 'd-sm-block', 'col-sm-4', 'col-md-3', 'py-3')}>
                         <ul>
                             <li>
                                 <div className={clsx('title')} onClick={(handledownCategory)}>
@@ -329,7 +341,7 @@ function ProductList() {
                     </div>
                     <div className={clsx(styles.products, 'col-11', 'col-sm-8', 'col-md-9')}>
                         <div className={clsx(styles.titleCategory, 'd-flex', 'justify-content-between', 'align-items-center')}>
-                            <h2>Tất cả sản phẩm</h2>
+                            <h2>Sản phẩm</h2>
                             <div className={clsx(styles.sort)}>
                                 <span>Sắp xếp:</span>
                                 <select value={sort} onChange={e => handleSort(e)}>

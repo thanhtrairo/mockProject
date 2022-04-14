@@ -4,47 +4,69 @@ const cartItemsFromLocalStorage = localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
     : []
 
+const shippingAddressFromLocalStorage = localStorage.getItem("shippingAdress")
+    ? JSON.parse(localStorage.getItem("shippingAdress"))
+    : {}
+
 const carts = createSlice({
     name: 'carts',
-    initialState: cartItemsFromLocalStorage,
+    initialState: {
+        cartItems: cartItemsFromLocalStorage,
+        shippingAdress: shippingAddressFromLocalStorage
+    },
     reducers: {
         addCart: (state, action) => {
-            const productInCart = state.find(cart => cart.id === action.payload.product.id)
+            const productInCart = state.cartItems.find(cart => cart.id === action.payload.id)
             if (!productInCart) {
-                return [
+                return {
                     ...state,
-                    {
-                        ...action.payload.product,
-                        quatity: action.payload.quatity ? action.payload.quatity : 1
-                    }
-                ]
+                    cartItems: [
+                        ...state.cartItems,
+                        {
+                            ...action.payload,
+                            quatity: action.payload.quatity ? action.payload.quatity : 1
+                        }
+                    ]
+                }
             } else {
-                let ObjIndex = state.findIndex(obj => obj.id === action.payload.product.id)
-                if (!state[ObjIndex].quatity) {
-                    state[ObjIndex].quatity = 2
+                let ObjIndex = state.cartItems.findIndex(obj => obj.id === action.payload.id)
+                if (!state.cartItems[ObjIndex].quatity) {
+                    state.cartItems[ObjIndex].quatity = 2
                 } else {
-                    state[ObjIndex].quatity = state[ObjIndex].quatity + 1
+                    state.cartItems[ObjIndex].quatity = state.cartItems[ObjIndex].quatity + 1
                 }
                 return state
             }
         },
         removeCart: (state, action) => {
-            const cartRemove = state.find(obj => obj.id === action.payload.id)
-            state.splice(cartRemove, 1)
+            const cartRemove = state.cartItems.find(obj => obj.id === action.payload.id)
+            state.cartItems.splice(cartRemove, 1)
         },
         setUpQuatity: (state, action) => {
-            let ObjIndex = state.findIndex(obj => obj.id === action.payload.id)
-            state[ObjIndex].quatity ++
+            let ObjIndex = state.cartItems.findIndex(obj => obj.id === action.payload.id)
+            state.cartItems[ObjIndex].quatity ++
             return state
         },
         setDownQuatity: (state, action) => {
-            let ObjIndex = state.findIndex(obj => obj.id === action.payload.id)
-            if (state[ObjIndex].quatity <= 1) return
-            state[ObjIndex].quatity --
+            let ObjIndex = state.cartItems.findIndex(obj => obj.id === action.payload.id)
+            if (state.cartItems[ObjIndex].quatity <= 1) return
+            state.cartItems[ObjIndex].quatity --
             return state
         },
+        saveShippingAddress: (state, action) => {
+            return {
+                ...state,
+                shippingAdress: action.payload
+            }
+        },
+        removeCarts: () => {
+            return {
+                cartItems: [],
+                shippingAdress: {}
+            }
+        }
     }
 })
 
-export const { addCart, setUpQuatity, setDownQuatity, removeCart, unmountCart } = carts.actions
+export const { addCart, setUpQuatity, setDownQuatity, removeCart, saveShippingAddress, removeCarts } = carts.actions
 export default carts.reducer 
