@@ -14,16 +14,13 @@
                 color    : #158ed4;
                 font-size: 15px;
             }
-
-            :hover {
-                color: red;
-            }
         }
     }
 
     .table-of-content {
         span {
             color: #158ed4;
+            cursor: pointer;
         }
 
         li {

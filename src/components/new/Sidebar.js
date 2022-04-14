@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import useFetch from '../../customize/fetch';
 import Category from './Danhmuc';
+import { ApiNews } from '../../api/Api';
 
 const Sidebar = (props) => {
     const [tempData, setTempData] = useState(null);
@@ -16,7 +17,7 @@ const Sidebar = (props) => {
         props.history.push(`/news/${news.id}`);
     }
     const { data: dataPost, isLoading, isError } =
-        useFetch('https://6254073619bc53e234776721.mockapi.io/api/News')
+        useFetch(ApiNews)
     return (
         <>
             <div className='sidebar-blog'>

@@ -42,7 +42,7 @@ const CategoryProducts = () => {
           cate === "" ? true : pro.category === cate
         );
 
-        console.log(data);
+        // console.log(data);
         setProduct(data);
       } catch (error) {
       } finally {
@@ -72,7 +72,7 @@ const CategoryProducts = () => {
 
     // alert("134");
   };
-  console.log(product);
+  // console.log(product);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;

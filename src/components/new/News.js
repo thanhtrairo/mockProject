@@ -6,11 +6,12 @@ import { withRouter, Link } from 'react-router-dom';
 import useFetch from '../../customize/fetch';
 import DetailNew from './detailnews/DetailNew';
 import clsx from 'clsx'
+import { ApiNews } from '../../api/Api';
 
 const News = (props) => {
 
     const {data: dataPost, isLoading, isError} =
-    useFetch('https://6254073619bc53e234776721.mockapi.io/api/News')
+    useFetch(ApiNews)
     return (
         <>
             <div className={clsx('main_wrap')}>
