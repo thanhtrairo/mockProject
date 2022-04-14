@@ -20,6 +20,7 @@ import OrderScreen from "./features/orders/Components/OrderScreen";
 
 import Home from "./pages/home/Home";
 import Admin from "./admin/components/Admin";
+import ScrollButton from "./components/scroll/ScrollToTop";
 
 function App() {
 
@@ -27,7 +28,7 @@ function App() {
     return (
       <>
         <Navbar />
-        
+        <ScrollButton />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />

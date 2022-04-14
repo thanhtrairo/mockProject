@@ -30,7 +30,7 @@ const Category = (props) => {
 
                 <ul className="relative h-full w-full text-gray-300">
                     <li className="links-mobile relative">
-                        <NavLink to="/" exact={true}>
+                        <NavLink to="/" exact={true} activeClassName="active1">
                             Trang Chủ
                         </NavLink>
                     </li>
@@ -64,13 +64,13 @@ const Category = (props) => {
                         </div>
                     </li>
                     <li className="links-mobile">
-                        <NavLink to="/cart">Giỏ hàng</NavLink>
+                        <NavLink to="/carts" activeClassName="active1">Giỏ hàng</NavLink>
                     </li>
                     <li className="links-mobile">
-                        <NavLink to="/contact">Liên hệ</NavLink>
+                        <NavLink to="/contact" activeClassName="active1">Liên hệ</NavLink>
                     </li>
-                    <li className="links-mobile">
-                        <NavLink to="news">Tin tức mới</NavLink>
+                    <li className="links-mobile" activeClassName="active1">
+                        <NavLink to="/news">Tin tức mới</NavLink>
                     </li>
                 </ul>
             </div>
